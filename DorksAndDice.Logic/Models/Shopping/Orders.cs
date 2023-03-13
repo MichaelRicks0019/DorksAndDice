@@ -10,6 +10,6 @@ namespace DorksAndDice.Logic.Models.Shopping
     {
         public int Order_Id { get; set; }
         public int Customer_Id { get; set; }
-        public int ShoppingCart_Id { get; set; }
+        public int ShoppingCart_Id { get; set; } 
     }
 }
