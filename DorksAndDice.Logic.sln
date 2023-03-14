@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DorksAndDice.Logic", "DorksAndDice.Logic\DorksAndDice.Logic.csproj", "{DD6C263D-3305-42D3-9F3D-7CDD813C28C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DorksAndDice.DB", "DorksAndDice.DB\DorksAndDice.DB.csproj", "{3055FC1C-7097-4414-B861-63C4E206C35C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DD6C263D-3305-42D3-9F3D-7CDD813C28C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD6C263D-3305-42D3-9F3D-7CDD813C28C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD6C263D-3305-42D3-9F3D-7CDD813C28C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3055FC1C-7097-4414-B861-63C4E206C35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3055FC1C-7097-4414-B861-63C4E206C35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3055FC1C-7097-4414-B861-63C4E206C35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3055FC1C-7097-4414-B861-63C4E206C35C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

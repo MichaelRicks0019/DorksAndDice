@@ -17,7 +17,7 @@ namespace DorksAndDice.Logic.Models.CustomerData
         public string Last_Name { get; set; }
         public string Email { get; set; }
         public string Phone_Number { get; set; }
-        public string Address { get; set; }
+        public int Address_Id { get; set; }
         public bool Status_Active { get; set; }
         public DateTime Create_Date { get; set; }
         public DateTime Last_Logged_On { get; set; }

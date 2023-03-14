@@ -8,11 +8,10 @@ namespace DorksAndDice.Logic.Models.Product
 {
     public class Product
     {
-        public int Dice_Id { get; set; }
         public int Product_Id { get; set; }
-        public string Name { get; set; }
-        public int Quantity { get; set; }
-        public decimal Price { get; set; }
+        public string Product_Name { get; set; }
+        public int Product_Quantity { get; set; }
+        public decimal Product_Price { get; set; }
         public string Product_Type { get; set; }
     }
 }
