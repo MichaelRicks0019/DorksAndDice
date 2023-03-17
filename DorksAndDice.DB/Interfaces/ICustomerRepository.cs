@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DorksAndDice.Logic.Exceptions
+namespace DorksAndDice.DB.Interfaces
 {
-    internal class Class1
+    internal interface ICustomerRepository
     {
     }
 }
