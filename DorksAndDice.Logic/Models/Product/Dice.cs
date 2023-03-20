@@ -8,7 +8,7 @@ namespace DorksAndDice.Logic.Models.Product
 {
     public class Dice
     {
-        public decimal Dice_Id { get; set; }
+        public int Dice_Id { get; set; }
         public int Product_Id { get; set; }
         public string Edge { get; set; }
         public string Color { get; set; }
