@@ -10,6 +10,6 @@ namespace DorksAndDice.DB.Interfaces
     public interface ICountryRepository<Country> : IGenericRepository<Country>
     {
         List<Country> GetByName (string name);
-        DateTime LastUpdate(int id);
+        DateTime LastUpdate(int countryId);
     }
 }

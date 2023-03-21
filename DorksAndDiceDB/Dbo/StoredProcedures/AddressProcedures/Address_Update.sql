@@ -9,6 +9,11 @@
 AS
 BEGIN
 	UPDATE [dbo].[Address]
-	SET Address1 = @Address1, Address2 = @Address2, City_Id = @City_Id, Apartment_Number = @Apartment_Number, Postal_Code = @Postal_Code, Last_Update = @Last_Update
+	SET Address1 = @Address1, 
+	Address2 = @Address2, 
+	City_Id = @City_Id, 
+	Apartment_Number = @Apartment_Number, 
+	Postal_Code = @Postal_Code, 
+	Last_Update = @Last_Update
 	WHERE Address_Id = @Address_Id;
 END

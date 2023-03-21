@@ -11,9 +11,9 @@ namespace DorksAndDice.DB.Interfaces
     public interface ICustomerRepository<CustomerData> : IGenericRepository<CustomerData>
     {
         //Regular Methods
-        List<CustomerData>GetByFullName(string fullName);
+        List<CustomerData> GetByFullName(string fullName);
         List<CustomerData> GetByFirstName(string name);
-        List<CustomerData>GetByMiddleName(string name);
+        List<CustomerData> GetByMiddleName(string name);
         List<CustomerData> GetByLastName(string lastName);
         List<CustomerData> GetByPhoneNumber(string phoneNumber);
         List<CustomerData> GetByEmail(string email);
