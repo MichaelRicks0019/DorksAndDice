@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[Address_GetByPostalCode]
-	@param1 int = 0,
-	@param2 int
+	@Postal_Code nvarchar(25)
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT *
+	FROM [dbo].[Address] 
+	WHERE Postal_Code = @Postal_Code;
+END

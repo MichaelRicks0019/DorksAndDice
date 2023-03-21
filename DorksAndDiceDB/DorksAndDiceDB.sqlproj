@@ -56,5 +56,37 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Dbo" />
+    <Folder Include="Dbo\ProductTable" />
+    <Folder Include="Dbo\CustomerData" />
+    <Folder Include="Dbo\Shopping" />
+    <Folder Include="Dbo\StoredProcedures" />
+    <Folder Include="Dbo\StoredProcedures\AddressProcedures" />
+    <Folder Include="Dbo\StoredProcedures\CityProcedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Dbo\ProductTable\Dice.sql" />
+    <Build Include="Dbo\ProductTable\Product.sql" />
+    <Build Include="Dbo\CustomerData\Address.sql" />
+    <Build Include="Dbo\CustomerData\City.sql" />
+    <Build Include="Dbo\CustomerData\Country.sql" />
+    <Build Include="Dbo\CustomerData\CustomerData.sql" />
+    <Build Include="Dbo\Shopping\Orders.sql" />
+    <Build Include="Dbo\Shopping\ShoppingCartItems.sql" />
+    <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_GetByAddress1.sql" />
+    <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_GetByAddress2.sql" />
+    <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_GetByCityId.sql" />
+    <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_GetByApartmentNumber.sql" />
+    <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_GetByPostalCode.sql" />
+    <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_GetLastUpdate.sql" />
+    <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\CityProcedures\City_GetCountryId.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="DorksAndDiceDB.refactorlog" />
   </ItemGroup>
 </Project>

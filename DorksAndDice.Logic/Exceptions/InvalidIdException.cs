@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CKK.Logic.Exceptions
+namespace DorksAndDice.Logic.Exceptions
 {
-    [Serializable]
    public class InvalidIdException : Exception
    {
             public InvalidIdException() : base("Must enter valid Id")

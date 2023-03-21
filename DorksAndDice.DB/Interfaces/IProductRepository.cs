@@ -9,10 +9,9 @@ namespace DorksAndDice.Logic.Interfaces
 {
     public interface IProductRepository<Order> : IGenericRepository<Product>
     {
-        List<Product> GetProductByName (string name);
-        List<Product> GetProductByQuantity (int quantity);
-        List<Product> GetProductByPrice (decimal price);
-        List<Product> GetProductByType(string type);
-
+        List<Product> GetByName (string name);
+        List<Product> GetByQuantity (int quantity);
+        List<Product> GetByPrice (decimal price);
+        List<Product> GetByType(string type);
     }
 }

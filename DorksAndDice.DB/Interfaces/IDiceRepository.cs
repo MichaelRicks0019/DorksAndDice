@@ -9,6 +9,7 @@ namespace DorksAndDice.Logic.Interfaces
 {
     public interface IDiceRepository : IGenericRepository<Dice>
     {
+        public enum DiceType { Edge, Color, Material, Style, Type, Size};
         Product GetProductById (int productId);
         Dice GetDiceById (int DiceId);
         List<Dice> GetDiceCharacteristicBy(
@@ -18,5 +19,8 @@ namespace DorksAndDice.Logic.Interfaces
             string Style = "0",
             string Type = "0",
             string Size = "0");
+
+        Task<Product> GetProductByIdAsync(int productId);
+        Task<Dice> GetDiceByIdAsync(int DiceId);
     }
 }

@@ -4,22 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CKK.Logic.Exceptions
+namespace DorksAndDice.Logic.Exceptions
 {
-    [Serializable]
-    public class InventoryItemStockTooLowException : Exception
+    public class NegativeQuantityException : Exception
     {
-        public InventoryItemStockTooLowException() : base("Inventory Item Stock is too low")
+        public NegativeQuantityException() : base("Quantity cannot be below 0")
         {
 
         }
 
-        public InventoryItemStockTooLowException(string messageValue) : base(messageValue)
+        public NegativeQuantityException(string messageValue) : base(messageValue)
         {
 
         }
 
-        public InventoryItemStockTooLowException(string messageValue, Exception inner) : base(messageValue, inner)
+        public NegativeQuantityException(string messageValue, Exception inner) : base(messageValue, inner)
         {
 
         }

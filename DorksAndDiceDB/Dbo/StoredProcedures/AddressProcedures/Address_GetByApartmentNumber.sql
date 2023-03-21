@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[Address_GetByApartmentNumber]
-	@param1 int = 0,
-	@param2 int
+	@Apartment_Number int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT *
+	FROM [dbo].[Address] 
+	WHERE Apartment_Number = @Apartment_Number;
+END

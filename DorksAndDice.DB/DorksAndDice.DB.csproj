@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DorksAndDice.Logic\DorksAndDice.Logic.csproj" />
+  </ItemGroup>
+
 </Project>

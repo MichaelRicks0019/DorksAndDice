@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DorksAndDice.Logic.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace DorksAndDice.DB.Interfaces
 {
-    internal interface ICountryRepository
+    public interface ICountryRepository<Country> : IGenericRepository<Country>
     {
+        List<Country> GetByName (string name);
+        DateTime LastUpdate(int id);
     }
 }
