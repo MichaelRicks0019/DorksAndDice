@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[Country_GetByName]
-	@param1 int = 0,
-	@param2 int
+	@Country_Name nvarchar(50)
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT * 
+	FROM [dbo].[Country]
+	WHERE Country_Name = @Country_Name;
+END

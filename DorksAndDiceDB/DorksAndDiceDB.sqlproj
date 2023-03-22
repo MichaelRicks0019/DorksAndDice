@@ -63,6 +63,8 @@
     <Folder Include="Dbo\StoredProcedures" />
     <Folder Include="Dbo\StoredProcedures\AddressProcedures" />
     <Folder Include="Dbo\StoredProcedures\CityProcedures" />
+    <Folder Include="Dbo\StoredProcedures\CountryProcedures" />
+    <Folder Include="Dbo\StoredProcedures\CustomerDateProcedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Dbo\ProductTable\Dice.sql" />
@@ -85,6 +87,35 @@
     <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_Update.sql" />
     <Build Include="Dbo\StoredProcedures\AddressProcedures\Address_Delete.sql" />
     <Build Include="Dbo\StoredProcedures\CityProcedures\City_GetCountryId.sql" />
+    <Build Include="Dbo\StoredProcedures\CityProcedures\City_GetByName.sql" />
+    <Build Include="Dbo\StoredProcedures\CityProcedures\City_GetByState.sql" />
+    <Build Include="Dbo\StoredProcedures\CityProcedures\CIty_GetLastUpdate.sql" />
+    <Build Include="Dbo\StoredProcedures\CityProcedures\City_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\CityProcedures\City_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\CityProcedures\City_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\CityProcedures\CIty_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\CityProcedures\City_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\CountryProcedures\Country_GetByName.sql" />
+    <Build Include="Dbo\StoredProcedures\CountryProcedures\Country_LastUpdate.sql" />
+    <Build Include="Dbo\StoredProcedures\CountryProcedures\Country_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\CountryProcedures\Country_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\CountryProcedures\Country_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\CountryProcedures\Country_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\CountryProcedures\Country_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByFullName.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByFirstName.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByMiddleName.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByLastName.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByPhoneNumbert.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByEmail.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByAddressId.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_ActiveCount.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetCreateDate.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_LastLoggedOn.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DorksAndDiceDB.refactorlog" />

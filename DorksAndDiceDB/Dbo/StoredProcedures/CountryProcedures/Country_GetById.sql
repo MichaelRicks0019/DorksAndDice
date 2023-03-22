@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[Country_GetById]
-	@param1 int = 0,
-	@param2 int
+	@Country_Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT * 
+	FROM [dbo].[Country]
+	WHERE Country_Id = @Country_Id;
+END

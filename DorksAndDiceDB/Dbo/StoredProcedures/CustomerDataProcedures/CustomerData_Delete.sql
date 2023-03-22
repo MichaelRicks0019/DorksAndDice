@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[CustomerData_GetByLastName]
+﻿CREATE PROCEDURE [dbo].[CustomerData_Delete]
 	@param1 int = 0,
 	@param2 int
 AS

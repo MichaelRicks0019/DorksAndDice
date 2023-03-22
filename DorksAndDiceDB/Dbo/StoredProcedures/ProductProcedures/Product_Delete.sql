@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[CustomerData_LastLoggedOn]
+﻿CREATE PROCEDURE [dbo].[Product_Delete]
 	@param1 int = 0,
 	@param2 int
 AS

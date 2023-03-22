@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[CustomerData_GetByMiddleName]
+﻿CREATE PROCEDURE [dbo].[Product_GetByName]
 	@param1 int = 0,
 	@param2 int
 AS

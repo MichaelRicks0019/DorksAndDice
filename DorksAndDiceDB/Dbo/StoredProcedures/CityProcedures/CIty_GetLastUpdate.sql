@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[CIty_GetLastUpdate]
-	@param1 int = 0,
-	@param2 int
+	@City_Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT Last_Update
+	FROM [dbo].[City]
+	WHERE City_Id = @City_Id;
+END

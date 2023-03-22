@@ -8,6 +8,11 @@
 	@Last_Update datetime
 AS
 BEGIN
-	INSERT INTO [dbo].[Address]
-	VALUES (@Address1, @Address2, @City_Id, @Apartment_Number, @Postal_Code, @Last_Update);
+	UPDATE [dbo].[Address]
+	VALUES (@Address1, 
+	@Address2, 
+	@City_Id, 
+	@Apartment_Number, 
+	@Postal_Code, 
+	@Last_Update);
 END

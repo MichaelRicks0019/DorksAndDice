@@ -1,6 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[Country_Update]
-	@param1 int = 0,
-	@param2 int
+	@Country_Id int,
+	@Country_Name nvarchar(50),
+	@Last_Update datetime
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	UPDATE [dbo].[Country]
+	SET Country_Id = @Country_Id, 
+	Country_Name = @Country_Name, 
+	Last_Update = @Last_Update;
+END

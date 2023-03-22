@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[CustomerData_GetActiveCount]
+﻿CREATE PROCEDURE [dbo].[Product_GetByQuantity]
 	@param1 int = 0,
 	@param2 int
 AS

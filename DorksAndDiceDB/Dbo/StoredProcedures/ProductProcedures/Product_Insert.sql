@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[CustomerData_GetByAddressId]
+﻿CREATE PROCEDURE [dbo].[Product_Insert]
 	@param1 int = 0,
 	@param2 int
 AS

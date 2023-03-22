@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[CustomerData_GetByPhoneNumbert]
+﻿CREATE PROCEDURE [dbo].[Product_GetByType]
 	@param1 int = 0,
 	@param2 int
 AS
