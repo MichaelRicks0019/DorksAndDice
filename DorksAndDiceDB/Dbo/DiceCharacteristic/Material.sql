@@ -1,4 +1,4 @@
 ﻿CREATE TABLE [dbo].[Material]
 (
-	[MaterialCharacteristic_Id] INT NOT NULL PRIMARY KEY
+	[Color_Id] INT NOT NULL PRIMARY KEY
 )
