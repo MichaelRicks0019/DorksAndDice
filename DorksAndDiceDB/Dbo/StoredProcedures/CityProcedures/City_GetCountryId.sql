@@ -2,8 +2,8 @@
 	@CityId int
 AS
 BEGIN
-	SELECT CountryId
-	FROM [dbo].[Country]
-	RIGHT JOIN CITY
-	ON Country.Country_Id = City.Country_Id;	
+	SELECT ci.Country_Id
+	FROM Country c
+	RIGHT JOIN City ci
+	ON c.Country_Id = ci.Country_Id;	
 END

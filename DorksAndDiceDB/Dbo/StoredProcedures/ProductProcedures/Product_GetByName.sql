@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[Product_GetByName]
-	@param1 int = 0,
-	@param2 int
+	@Product_Name nvarchar(MAX)
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT *
+	FROM Product
+	WHERE Product_Name = @Product_Name;
+END

@@ -5,7 +5,6 @@
 AS
 BEGIN
 	UPDATE [dbo].[Country]
-	SET Country_Id = @Country_Id, 
-	Country_Name = @Country_Name, 
+	SET Country_Name = @Country_Name, 
 	Last_Update = @Last_Update;
 END

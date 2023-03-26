@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[CustomerData_Insert]
+﻿CREATE PROCEDURE [dbo].[CustomerData_Update]
 	@Customer_Id int,
 	@First_Name nvarchar(50),
 	@Middle_Name nvarchar(50),
@@ -20,5 +20,6 @@ BEGIN
 	Address_Id = @Address_Id,
 	Status_Active = @Status_Active,
 	Create_Date = @Create_Date,
-	Last_Logged_On = @Last_Logged_On;
+	Last_Logged_On = @Last_Logged_On
+	WHERE Customer_Id = @Customer_Id;
 END

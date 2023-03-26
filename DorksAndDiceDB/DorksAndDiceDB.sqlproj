@@ -9,8 +9,7 @@
     <ProjectGuid>{d02bb7ae-c39b-4f6c-8748-76db2f1a56d5}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>DorksAndDiceDB</RootNamespace>
     <AssemblyName>DorksAndDiceDB</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
@@ -48,7 +47,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -64,7 +62,10 @@
     <Folder Include="Dbo\StoredProcedures\AddressProcedures" />
     <Folder Include="Dbo\StoredProcedures\CityProcedures" />
     <Folder Include="Dbo\StoredProcedures\CountryProcedures" />
-    <Folder Include="Dbo\StoredProcedures\CustomerDateProcedures" />
+    <Folder Include="Dbo\StoredProcedures\CustomerDataProcedures" />
+    <Folder Include="Dbo\StoredProcedures\ProductProcedures" />
+    <Folder Include="Dbo\StoredProcedures\DiceProcedures" />
+    <Folder Include="Dbo\DiceCharacteristic" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Dbo\ProductTable\Dice.sql" />
@@ -102,22 +103,38 @@
     <Build Include="Dbo\StoredProcedures\CountryProcedures\Country_Insert.sql" />
     <Build Include="Dbo\StoredProcedures\CountryProcedures\Country_Delete.sql" />
     <Build Include="Dbo\StoredProcedures\CountryProcedures\Country_Update.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByFullName.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByFirstName.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByMiddleName.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByLastName.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByPhoneNumbert.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByEmail.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetByAddressId.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_ActiveCount.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetCreateDate.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_LastLoggedOn.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetById.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_GetAll.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_Insert.sql" />
-    <Build Include="Dbo\StoredProcedures\CustomerDateProcedures\CustomerData_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_GetByFullName.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_GetByFirstName.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_GetByMiddleName.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_GetByLastName.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_GetByPhoneNumbert.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_GetByEmail.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_GetByAddressId.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_ActiveCount.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_GetCreateDate.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_LastLoggedOn.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_GetByName.sql" />
+    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_GetByQuantity.sql" />
+    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_GetByPrice.sql" />
+    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_GetByType.sql" />
+    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetProductById.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetDiceById.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetDiceCharacteristicBy.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DorksAndDiceDB.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DorksAndDiceDB.publish.xml" />
   </ItemGroup>
 </Project>

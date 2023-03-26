@@ -7,8 +7,7 @@
 AS
 BEGIN
 	UPDATE [dbo].[City]
-	SET Country_Id = @Country_Id,
-	City_Name = @City_Name,
+	SET City_Name = @City_Name,
 	State_Name = @State_Name,
 	Last_Update = @Last_Update
 	WHERE City_Id = @City_Id;

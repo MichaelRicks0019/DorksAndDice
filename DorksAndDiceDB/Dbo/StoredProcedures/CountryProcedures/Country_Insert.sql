@@ -4,7 +4,7 @@
 	@Last_Update datetime
 AS
 BEGIN
-	INSERT INTO [dbo].[Country]
+	INSERT INTO [dbo].[Country] (Country_Id, Country_Name, Last_Update)
 	VALUES (@Country_Id, 
 	@Country_Name, 
 	@Last_Update);

@@ -11,8 +11,8 @@
 	@Last_Logged_On datetime
 AS
 BEGIN
-	INSERT INTO CustomerData
-	VALUES (@FIrst_Name, 
+	INSERT INTO [dbo].[CustomerData] (First_Name, Middle_Name, Last_Name, Email, Phone_Number, Address_Id, Status_Active, Create_Date, Last_Logged_On)
+	VALUES (@First_Name, 
 	@Middle_Name, 
 	@Last_Name, 
 	@Email, 

@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[Product_GetByQuantity]
-	@param1 int = 0,
-	@param2 int
+	@Product_Quantity int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT *
+	FROM Product
+	WHERE Product_Quantity = @Product_Quantity;
+END

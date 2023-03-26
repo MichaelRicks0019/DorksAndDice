@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[CustomerData_Delete]
-	@param1 int = 0,
-	@param2 int
+	@Customer_Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	DELETE [dbo].[CustomerData]
+	WHERE Customer_Id = @Customer_Id;
+END
