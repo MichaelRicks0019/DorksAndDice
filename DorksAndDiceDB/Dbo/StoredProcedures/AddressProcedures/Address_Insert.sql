@@ -1,5 +1,4 @@
 ﻿CREATE PROCEDURE [dbo].[Address_Insert]
-	@Address_Id int,
 	@Address1 nvarchar(75),
 	@Address2 nvarchar(75),
 	@City_Id int,

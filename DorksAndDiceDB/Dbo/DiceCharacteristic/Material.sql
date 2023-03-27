@@ -1,4 +1,5 @@
 ﻿CREATE TABLE [dbo].[Material]
 (
-	[Color_Id] INT NOT NULL PRIMARY KEY
+	[Color_Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Color] NVARCHAR(75) NOT NULL
 )

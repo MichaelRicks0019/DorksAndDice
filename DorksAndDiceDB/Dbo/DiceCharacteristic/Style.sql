@@ -1,4 +1,5 @@
 ﻿CREATE TABLE [dbo].[Style]
 (
-	[Style_Id] INT NOT NULL PRIMARY KEY
+	[Style_Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Style] NVARCHAR(75) NOT NULL
 )

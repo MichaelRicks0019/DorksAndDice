@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Edge]
 (
-	[Edge_Id] INT NOT NULL PRIMARY KEY, 
+	[Edge_Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [Edge] NVARCHAR(75) NOT NULL
 )

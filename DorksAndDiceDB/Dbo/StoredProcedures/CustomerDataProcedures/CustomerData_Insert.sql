@@ -1,5 +1,4 @@
 ﻿CREATE PROCEDURE [dbo].[CustomerData_Insert]
-	@Customer_Id int,
 	@First_Name nvarchar(50),
 	@Middle_Name nvarchar(50),
 	@Last_Name nvarchar(50),
