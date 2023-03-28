@@ -66,6 +66,8 @@
     <Folder Include="Dbo\StoredProcedures\ProductProcedures" />
     <Folder Include="Dbo\StoredProcedures\DiceProcedures" />
     <Folder Include="Dbo\DiceCharacteristic" />
+    <Folder Include="Dbo\StoredProcedures\OrdersProcedures" />
+    <Folder Include="Dbo\StoredProcedures\ShoppingCartsProcedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Dbo\ProductTable\Dice.sql" />
@@ -136,6 +138,29 @@
     <Build Include="Dbo\DiceCharacteristic\Style.sql" />
     <Build Include="Dbo\DiceCharacteristic\Type.sql" />
     <Build Include="Dbo\DiceCharacteristic\Size.sql" />
+    <Build Include="Dbo\StoredProcedures\OrdersProcedures\Orders_GetByCustomerId.sql" />
+    <Build Include="Dbo\StoredProcedures\OrdersProcedures\Orders_GetByShoppingCartId.sql" />
+    <Build Include="Dbo\StoredProcedures\OrdersProcedures\Orders_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\OrdersProcedures\Orders_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\OrdersProcedures\Orders_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\OrdersProcedures\Orders_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\OrdersProcedures\Orders_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_GetByShoppingCartId.sql" />
+    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_GetByProductId.sql" />
+    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_GetByQuantity.sql" />
+    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_ClearCart.sql" />
+    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_GetTotal.sql" />
+    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_GetProducts.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DorksAndDiceDB.refactorlog" />

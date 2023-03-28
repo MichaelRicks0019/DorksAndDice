@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[Dice_GetById]
-	@param1 int = 0,
-	@param2 int
+	@Dice_Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT *
+	FROM [dbo].[Dice]
+	WHERE Dice_Id = @Dice_Id;
+END

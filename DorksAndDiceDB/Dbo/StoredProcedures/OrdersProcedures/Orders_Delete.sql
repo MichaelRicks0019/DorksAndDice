@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[Orders_Delete]
-	@param1 int = 0,
-	@param2 int
+	@Order_Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	DELETE [dbo].[Orders]
+	WHERE Order_Id = @Order_Id;
+END

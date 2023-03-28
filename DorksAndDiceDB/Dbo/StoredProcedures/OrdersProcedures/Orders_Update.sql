@@ -1,6 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[Orders_Update]
-	@param1 int = 0,
-	@param2 int
+	@Order_Id int,
+	@Customer_Id int,
+	@ShoppingCart_Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	UPDATE [dbo].[Orders]
+	SET Customer_Id = @Customer_Id, ShoppingCart_Id = @ShoppingCart_Id;
+END
