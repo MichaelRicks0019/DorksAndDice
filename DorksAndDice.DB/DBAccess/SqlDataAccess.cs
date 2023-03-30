@@ -15,7 +15,9 @@ namespace DorksAndDice.DB.DBAccess
         }
 
         //Return type is going to be the desired model in list form. So all rows that match parameters
+        //T is where model class goes. Example is LoadData<Dice, 
         //Parameters is where the query info goes. The stored procedure @Data info goes there
+        //USE Dynamic IF THERE ARE NO PARAMETERS AS PARAMETER
         //connectionId is where the SQL database connection goes. Default refers to the one in the json file
         public async Task<IEnumerable<T>> LoadData<T, U>(string storedProcedure, U parameters, string connectionId = "Default")
         {

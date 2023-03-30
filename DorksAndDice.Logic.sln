@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DorksAndDice.Logic", "DorksAndDice.Logic\DorksAndDice.Logic.csproj", "{DD6C263D-3305-42D3-9F3D-7CDD813C28C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DorksAndDice.Logic", "DorksAndDice.Logic\DorksAndDice.Logic.csproj", "{DD6C263D-3305-42D3-9F3D-7CDD813C28C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DorksAndDice.DB", "DorksAndDice.DB\DorksAndDice.DB.csproj", "{3055FC1C-7097-4414-B861-63C4E206C35C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DorksAndDice.DB", "DorksAndDice.DB\DorksAndDice.DB.csproj", "{3055FC1C-7097-4414-B861-63C4E206C35C}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DorksAndDiceDB", "DorksAndDiceDB\DorksAndDiceDB.sqlproj", "{D02BB7AE-C39B-4F6C-8748-76DB2F1A56D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DorksAndDice.API", "DorksAndDice.API\DorksAndDice.API.csproj", "{B0F9D49F-CA84-4D62-A771-D8DDFB629F63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{D02BB7AE-C39B-4F6C-8748-76DB2F1A56D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D02BB7AE-C39B-4F6C-8748-76DB2F1A56D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D02BB7AE-C39B-4F6C-8748-76DB2F1A56D5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B0F9D49F-CA84-4D62-A771-D8DDFB629F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0F9D49F-CA84-4D62-A771-D8DDFB629F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0F9D49F-CA84-4D62-A771-D8DDFB629F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0F9D49F-CA84-4D62-A771-D8DDFB629F63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
