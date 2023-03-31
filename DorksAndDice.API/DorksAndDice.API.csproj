@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DorksAndDice.DB\DorksAndDice.DB.csproj" />
+    <ProjectReference Include="..\DorksAndDice.Logic\DorksAndDice.Logic.csproj" />
+    <ProjectReference Include="..\DorksAndDiceDB\DorksAndDiceDB.sqlproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,15 @@
+using DorksAndDice.DB.DataRepositories;
+using DorksAndDice.DB.DBAccess;
+using DorksAndDice.DB.Interfaces;
+using DorksAndDice.Logic.Models.CustomerData;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<ISqlDataAccess, SqlDataAccess>();
+
+
 
 var app = builder.Build();
 

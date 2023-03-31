@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DorksAndDice.DB.DataRepositories
 {
-    public class AddressRepository : IAddressRepository<Address>
+    public class AddressRepository<Address> : IAddressRepository<Address> where Address : Logic.Models.CustomerData.Address
     {
         private readonly ISqlDataAccess _db;
 
@@ -23,64 +23,56 @@ namespace DorksAndDice.DB.DataRepositories
             return _db.SaveData("dbo.Address_Delete", new { Id = id });
         }
 
-        public Task<IEnumerable<Address>> GetAll()
+        public Task<List<Address>> GetAll()
         {
             return _db.LoadData<Address, dynamic>("dbo.Address_GetAll", new { });
         }
 
-        public Task<IEnumerable<Address>> GetByAddress1(string address)
+        public Task<List<Address>> GetByAddress1(string address)
         {
             return _db.LoadData<Address, string>("dbo.Address_GetByAddress1", address);
         }
 
-        public Task<IEnumerable<Address>> GetByAddress2(string address)
+        public Task<List<Address>> GetByAddress2(string address)
         {
             return _db.LoadData<Address, string>("dbo.Address_GetByAddress2", address);
         }
 
-        public Task<IEnumerable<Address>> GetByApartmentNumeber(int addressId)
+        public Task<List<Address>> GetByApartmentNumeber(int addressId)
         {
             return _db.LoadData<Address, int>("dbo.Address_GetByApartmentNumber", addressId);
         }
 
-        public Task<IEnumerable<Address>> GetByCityId(int cityid)
+        public Task<List<Address>> GetByCityId(int cityid)
         {
             return _db.LoadData<Address, int>("dbo.Address_GetByCityId", cityid);
         }
 
-        public Task<IEnumerable<Address>> GetById(int id)
+        public Task<List<Address>> GetById(int id)
         {
-            return _db.LoadData<Address, int>("dbo.Address_GetById", id);
+            var i = _db.LoadData<Address, int>("dbo.Address_GetById", id);
+            return i;
         }
 
-        public Task<IEnumerable<Address>> GetByPostalCode(string postalCode)
+        public Task<List<Address>> GetByPostalCode(string postalCode)
         {
-            return _db.LoadData<Address, string>("dbo.Address_GetByPostalCode", postalCode);
+            var i = _db.LoadData<Address, string>("dbo.Address_GetByPostalCode", postalCode);
+            return i;
         }
 
-        public Task<DateTime> GetLastUpdate(int addressId)
+        public DateTime GetLastUpdate(int addressId)
         {
-            return _db.LoadData<Address, int>("dbo.Address_GetLastUpdate", addressId).Result;
+            return _db.LoadData<Address, int>("dbo.Address_GetById", addressId).Result.First().Last_Update;
         }
 
-        public int Insert(Address entity)
+        public Task Insert(Address entity)
         {
-            throw new NotImplementedException();
+            return _db.SaveData("dbo.Address_Insert @Address1, @Address2, @City_Id, @Apartment_Number, @Postal_Code, @Last_Update", new { Address1 = entity.Address1, Address2 = entity.Address2, entity.City_Id, entity.Apartment_Number, entity.Postal_Code, entity.Last_Update });
         }
 
-        public Task<int> InsertAsync(Address entity)
+        public Task Update(Address entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public int Update(Address entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> UpdateAsync(Address entity)
-        {
-            throw new NotImplementedException();
+            return _db.SaveData("dbo.Address_Insert @Address_Id, @Address1, @Address2, @City_Id, @Apartment_Number, @Postal_Code, @Last_Update", entity);
         }
     }
 }
