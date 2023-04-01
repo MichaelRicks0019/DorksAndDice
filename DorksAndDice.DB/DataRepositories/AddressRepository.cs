@@ -50,14 +50,14 @@ namespace DorksAndDice.DB.DataRepositories
 
         public Task<List<Address>> GetById(int id)
         {
-            var i = _db.LoadData<Address, int>("dbo.Address_GetById", id);
-            return i;
+            return _db.LoadData<Address, int>("dbo.Address_GetById", id);
+            
         }
 
         public Task<List<Address>> GetByPostalCode(string postalCode)
         {
-            var i = _db.LoadData<Address, string>("dbo.Address_GetByPostalCode", postalCode);
-            return i;
+            return _db.LoadData<Address, string>("dbo.Address_GetByPostalCode", postalCode);
+            
         }
 
         public DateTime GetLastUpdate(int addressId)
