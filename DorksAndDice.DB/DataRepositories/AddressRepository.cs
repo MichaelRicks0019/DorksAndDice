@@ -67,7 +67,7 @@ namespace DorksAndDice.DB.DataRepositories
 
         public Task Insert(Address entity)
         {
-            return _db.SaveData("dbo.Address_Insert @Address1, @Address2, @City_Id, @Apartment_Number, @Postal_Code, @Last_Update", new { Address1 = entity.Address1, Address2 = entity.Address2, entity.City_Id, entity.Apartment_Number, entity.Postal_Code, entity.Last_Update });
+            return _db.SaveData("dbo.Address_Insert @Address1, @Address2, @City_Id, @Apartment_Number, @Postal_Code, @Last_Update", new { entity.Address1, entity.Address2, entity.City_Id, entity.Apartment_Number, entity.Postal_Code, entity.Last_Update });
         }
 
         public Task Update(Address entity)

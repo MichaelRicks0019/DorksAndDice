@@ -41,9 +41,9 @@ namespace DorksAndDice.DB.DataRepositories
             return _db.LoadData<City, int>("dbo.City_GetByState @State_Name", state);
         }
 
-        public int GetCountryId(int cityId)
+        public Task<int> GetCountryId(int cityId)
         {
-            return _db.LoadData<City, int>("dbo.City_GetCountryId @City_Id", cityId).Result.First().Country_Id;
+            Task t = await Task.Run(() => _db.LoadData<City, int>("dbo.City_GetCountryId @City_Id", cityId).Result.First().Country_Id);
         }
 
         public int Insert(City entity)
