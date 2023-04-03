@@ -1,15 +1,11 @@
 ﻿using DorksAndDice.Logic.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DorksAndDice.Logic.Models.CustomerData;
 
-namespace DorksAndDice.DB.Interfaces
+namespace DorksAndDice.DB.DataRepositories
 {
     public interface ICountryRepository<Country> : IGenericRepository<Country>
     {
-        List<Country> GetByName (string name);
+        Task<List<Country>> GetByName(string name);
         DateTime LastUpdate(int countryId);
     }
 }

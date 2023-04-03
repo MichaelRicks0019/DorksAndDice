@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DorksAndDice.DB.DataRepositories
+namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 {
     public class AddressRepository<Address> : IAddressRepository<Address> where Address : Logic.Models.CustomerData.Address
     {
@@ -51,18 +51,18 @@ namespace DorksAndDice.DB.DataRepositories
         public Task<List<Address>> GetById(int id)
         {
             return _db.LoadData<Address, int>("dbo.Address_GetById", id);
-            
+
         }
 
         public Task<List<Address>> GetByPostalCode(string postalCode)
         {
             return _db.LoadData<Address, string>("dbo.Address_GetByPostalCode", postalCode);
-            
+
         }
 
         public DateTime GetLastUpdate(int addressId)
         {
-            return _db.LoadData<Address, int>("dbo.Address_GetById", addressId).Result.First().Last_Update;
+            return _db.LoadData<DateTime, int>("dbo.Address_GetById", addressId).Result.FirstOrDefault();
         }
 
         public Task Insert(Address entity)

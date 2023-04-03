@@ -1,12 +1,12 @@
-﻿using DorksAndDice.DB.Interfaces;
-using DorksAndDice.DB.DBAccess;
+﻿using DorksAndDice.DB.DBAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DorksAndDice.Logic.Models.CustomerData;
 
-namespace DorksAndDice.DB.DataRepositories
+namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 {
     public class CityRepository<City> : ICityRepository<City> where City : Logic.Models.CustomerData.City
     {
@@ -41,34 +41,24 @@ namespace DorksAndDice.DB.DataRepositories
             return _db.LoadData<City, int>("dbo.City_GetByState @State_Name", state);
         }
 
-        public Task<int> GetCountryId(int cityId)
+        public int GetCountryId(int cityId)
         {
-            Task t = await Task.Run(() => _db.LoadData<City, int>("dbo.City_GetCountryId @City_Id", cityId).Result.First().Country_Id);
+            return _db.LoadData<int, int>("dbo.City_GetCountryId @City_Id", cityId).Result.FirstOrDefault();
         }
 
-        public int Insert(City entity)
+        public Task Insert(City entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> InsertAsync(City entity)
-        {
-            throw new NotImplementedException();
+            return _db.SaveData("dbo.City_Insert @Country_Id, @City_Name, @State_Name, @Last_Update", new { entity.Country_Id, entity.City_Name, entity.State_Name, entity.Last_Update });
         }
 
         public DateTime LastUpdate(int cityId)
         {
-            throw new NotImplementedException();
+            return _db.LoadData<DateTime, int>("dbo.City_GetLastUpdate @City_Id", cityId).Result.FirstOrDefault();
         }
 
-        public int Update(City entity)
+        public Task Update(City entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> UpdateAsync(City entity)
-        {
-            throw new NotImplementedException();
+            return _db.SaveData("dbo.City_Insert @Country_Id, @City_Name, @State_Name, @Last_Update", entity);
         }
     }
 }

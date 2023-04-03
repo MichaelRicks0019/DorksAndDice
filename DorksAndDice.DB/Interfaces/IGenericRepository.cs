@@ -9,21 +9,14 @@ namespace DorksAndDice.Logic.Interfaces
     public interface IGenericRepository<T>
     {
         //Gets entity by Id. Main Id, not Foriegn Key
-        T GetById(int id);
+        Task<List<T>> GetById(int id);
         //Gets all entities an returns list
-        List<T> GetAll();
+        Task<List<T>> GetAll();
         //Adds entity to database
-        int Insert(T entity);
+        Task Insert(T entity);
         //Finds entity in database based on Id and replaces it if different
-        int Update(T entity);
+        Task Update(T entity);
         //Removes entity from database
-        int Delete(int id);
-
-        //Async Methods
-        //Performs same acitons as above but asynchronous
-        Task<T> GetByIdAsync(int id);
-        Task<int> InsertAsync(T entity);
-        Task<int> UpdateAsync(T entity);
-        Task<int> DeleteAsync(int id);
+        Task Delete(int id);
     }
 }

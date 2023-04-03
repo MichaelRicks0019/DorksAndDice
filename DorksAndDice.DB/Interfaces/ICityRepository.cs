@@ -1,23 +1,15 @@
-﻿using DorksAndDice.Logic.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DorksAndDice.DB.Interfaces
+﻿namespace DorksAndDice.DB.DataRepositories
 {
-    public interface ICityRepository<City> : IGenericRepository<City>
+    public interface ICityRepository<City> where City : Logic.Models.CustomerData.City
     {
-        //Regular Methods
+        Task Delete(int id);
+        Task<List<City>> GetAll();
+        Task<List<City>> GetById(int id);
+        Task<List<City>> GetByName(string name);
+        Task<List<City>> GetByState(int state);
         int GetCountryId(int cityId);
-        List<City> GetByName (string name);
-        List<City> GetByState (int state);
+        Task Insert(City entity);
         DateTime LastUpdate(int cityId);
-
-        //Async Methods
-        Task<int> GetCitiesCountryIdAsync(int cityId);
-        
-
+        Task Update(City entity);
     }
 }

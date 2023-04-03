@@ -1,29 +1,21 @@
-﻿using DorksAndDice.Logic.Interfaces;
-using DorksAndDice.Logic.Models.CustomerData;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DorksAndDice.DB.Interfaces
+﻿namespace DorksAndDice.DB.Interfaces
 {
-    public interface ICustomerRepository<CustomerData> : IGenericRepository<CustomerData>
+    public interface ICustomerRepository<CustomerData> where CustomerData : Logic.Models.CustomerData.CustomerData
     {
-        //Regular Methods
-        List<CustomerData> GetByFullName(string fullName);
-        List<CustomerData> GetByFirstName(string name);
-        List<CustomerData> GetByMiddleName(string name);
-        List<CustomerData> GetByLastName(string lastName);
-        List<CustomerData> GetByPhoneNumber(string phoneNumber);
-        List<CustomerData> GetByEmail(string email);
-        List<CustomerData> GetByAddressId(int addressId);
         int ActiveCount();
+        Task Delete(int id);
+        Task<List<CustomerData>> GetAll();
+        Task<List<CustomerData>> GetByAddressId(int addressId);
+        Task<List<CustomerData>> GetByEmail(string email);
+        Task<List<CustomerData>> GetByFirstName(string name);
+        Task<List<CustomerData>> GetByFullName(string fullName);
+        Task<List<CustomerData>> GetById(int id);
+        Task<List<CustomerData>> GetByLastName(string lastName);
+        Task<List<CustomerData>> GetByMiddleName(string name);
+        Task<List<CustomerData>> GetByPhoneNumber(string phoneNumber);
         DateTime GetCreateDate(int customerId);
+        Task Insert(CustomerData entity);
         DateTime LastLoggedOn(int customerId);
-        
-        //Async Methods
-        Task<DateTime> GetCreateDateAsync(int customerId);
-        Task<DateTime> LastLoggedOnAsync(int customerId);
+        Task Update(CustomerData entity);
     }
 }
