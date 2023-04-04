@@ -6,3 +6,4 @@ BEGIN
 	FROM Product
 	WHERE Product_Id = @Product_Id;
 END
+ 
