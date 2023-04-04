@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DorksAndDice.Logic.Interfaces
 {
-    public interface IProductRepository<Order> : IGenericRepository<Product>
+    public interface IProductRepository<Product> : IGenericRepository<Product>
     {
-        List<Product> GetByName (string name);
-        List<Product> GetByQuantity (int quantity);
-        List<Product> GetByPrice (decimal price);
-        List<Product> GetByType(string type);
+        Task<List<Product>> GetByName (string name);
+        Task<List<Product>> GetByQuantity (int quantity);
+        Task<List<Product>> GetByPrice (decimal price);
+        Task<List<Product>> GetByType(string type);
     }
 }

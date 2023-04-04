@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DorksAndDice.API\DorksAndDice.API.csproj" />
+    <ProjectReference Include="..\DorksAndDice.DB\DorksAndDice.DB.csproj" />
+    <ProjectReference Include="..\DorksAndDice.Logic\DorksAndDice.Logic.csproj" />
+    <ProjectReference Include="..\DorksAndDiceDB\DorksAndDiceDB.sqlproj" />
+  </ItemGroup>
+
+</Project>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DorksAndDice.DB.Interfaces
 {
-    public interface IOrdersRepository : IGenericRepository<Orders>
+    public interface IOrdersRepository<Orders> : IGenericRepository<Orders>
     {
         List<Orders> GetByCustomerId (int customerId);
 

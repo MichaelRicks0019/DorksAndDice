@@ -40,7 +40,7 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
 
         public Task<List<Dice>> GetDiceCharacteristicBy(string Edge = "0", string Color = "0", string Material = "0", string Style = "0", string Type = "0", string Size = "0")
         {
-            return _db.LoadData<Dice, string>("Dice_GetDiceCharacteristicBy @Edge, @Color, @Material, @Style, @Type, @Size", new { Edge = Edge, Color = Color, Material = Material, Style = Style, Type = Type, Size = Size });
+            return _db.LoadData<Dice, dynamic>("Dice_GetDiceCharacteristicBy @Edge, @Color, @Material, @Style, @Type, @Size", new { Edge, Color, Material, Style, Type, Size });
         }
 
         public Task<List<Product>> GetProductById(int productId)
