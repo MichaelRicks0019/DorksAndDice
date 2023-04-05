@@ -4,7 +4,7 @@
     {
         Task Delete(int id);
         Task<List<City>> GetAll();
-        Task<List<City>> GetById(int id);
+        Task<City?> GetById(int id);
         Task<List<City>> GetByName(string name);
         Task<List<City>> GetByState(int state);
         int GetCountryId(int cityId);

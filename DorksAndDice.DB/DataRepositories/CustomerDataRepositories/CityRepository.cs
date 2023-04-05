@@ -26,9 +26,10 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
             return _db.LoadData<City, dynamic>("dbo.City_GetAll", new { });
         }
 
-        public Task<List<City>> GetById(int id)
+        public async Task<City?> GetById(int id)
         {
-            return _db.LoadData<City, int>("dbo.City_GetById @City_Id", id);
+            var results = await _db.LoadData<City, dynamic>("dbo.City_GetById", new { Id = id });
+            return results.FirstOrDefault();
         }
 
         public Task<List<City>> GetByName(string name)
@@ -48,7 +49,7 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 
         public Task Insert(City entity)
         {
-            return _db.SaveData("dbo.City_Insert @Country_Id, @City_Name, @State_Name, @Last_Update", new { entity.Country_Id, entity.City_Name, entity.State_Name, entity.Last_Update });
+            return _db.SaveData("dbo.City_Insert @Country_Id, @City_Name, @State_Name, @Last_Update", new { Country_Id = entity.Country_Id, City_Name = entity.City_Name, State_Name = entity.State_Name, Last_Update = entity.Last_Update });
         }
 
         public DateTime LastUpdate(int cityId)

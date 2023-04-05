@@ -5,7 +5,7 @@
 	@Product_Type nvarchar(50)
 AS
 BEGIN
-	INSERT INTO [dbo].[Product] (Product_Id, Product_Name, Product_Quantity, Product_Price, Product_Type)
+	INSERT INTO [dbo].[Product] (Product_Name, Product_Quantity, Product_Price, Product_Type)
 	VALUES (@Product_Name,
 	@Product_Quantity,
 	@Product_Price,
