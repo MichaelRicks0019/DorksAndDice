@@ -1,11 +1,13 @@
-﻿using DorksAndDice.Logic.Interfaces;
-using DorksAndDice.Logic.Models.CustomerData;
-
-namespace DorksAndDice.DB.DataRepositories
+﻿namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 {
-    public interface ICountryRepository<Country> : IGenericRepository<Country>
+    public interface ICountryRepository<Country> where Country : Logic.Models.CustomerData.Country
     {
+        Task Delete(int id);
+        Task<List<Country>> GetAll();
+        Task<Country?> GetById(int id);
         Task<List<Country>> GetByName(string name);
-        DateTime LastUpdate(int countryId);
+        Task Insert(Country entity);
+        Task<DateTime> LastUpdate(int countryId);
+        Task Update(Country entity);
     }
 }

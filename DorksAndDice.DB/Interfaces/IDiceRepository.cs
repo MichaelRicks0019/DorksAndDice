@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DorksAndDice.Logic.Models.Product;
+﻿using DorksAndDice.Logic.Models.Product;
 
-namespace DorksAndDice.Logic.Interfaces
+namespace DorksAndDice.DB.DataRepositories.ProductRepositories
 {
-    public interface IDiceRepository<Dice> : IGenericRepository<Dice>
+    public interface IDiceRepository<Dice> where Dice : Logic.Models.Product.Dice
     {
-        public enum DiceType { Edge, Color, Material, Style, Type, Size};
-        Task<List<Product>> GetProductById (int productId);
-        Task<List<Dice>> GetDiceById (int DiceId);
-        Task<List<Dice>> GetDiceCharacteristicBy(
-            string Edge = "0",
-            string Color = "0",
-            string Material = "0",
-            string Style = "0",
-            string Type = "0",
-            string Size = "0");
+        Task Delete(int id);
+        Task<List<Dice>> GetAll();
+        Task<List<Dice>> GetById(int id);
+        Task<Dice?> GetDiceById(int DiceId);
+        Task<List<Dice>> GetDiceCharacteristicBy(string Edge = "0", string Color = "0", string Material = "0", string Style = "0", string Type = "0", string Size = "0");
+        Task<Product?> GetProductById(int productId);
+        Task Insert(Dice entity);
+        Task Update(Dice entity);
     }
 }

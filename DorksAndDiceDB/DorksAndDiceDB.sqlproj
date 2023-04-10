@@ -131,7 +131,7 @@
     <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_Delete.sql" />
     <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetProductById.sql" />
     <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetDiceById.sql" />
-    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetDiceCharacteristicBy.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetDiceByCharacteristic.sql" />
     <Build Include="Dbo\DiceCharacteristic\Edge.sql" />
     <Build Include="Dbo\DiceCharacteristic\Color.sql" />
     <Build Include="Dbo\DiceCharacteristic\Material.sql" />

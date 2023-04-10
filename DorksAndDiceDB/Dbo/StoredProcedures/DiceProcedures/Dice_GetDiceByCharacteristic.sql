@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[Dice_GetDiceCharacteristicBy]
+﻿CREATE PROCEDURE [dbo].[Dice_GetDiceByCharacteristic]
 	@Edge nvarchar(75),
 	@Color nvarchar(75),
 	@Material nvarchar(75),

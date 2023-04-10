@@ -26,11 +26,13 @@ namespace DorksAndDice.DB.DBAccess
         //Parameters is where the query info goes. The stored procedure @Data info goes there
         //USE Dynamic IF THERE ARE NO PARAMETERS AS PARAMETER
         //connectionId is where the SQL database connection goes. Default refers to the one in the json file
-        public async Task<List<T>> LoadData<T, U>(string storedProcedure, U parameters)
+        public async Task<IEnumerable<T>> LoadData<T, U>(string storedProcedure, U parameters)
         {
-            using (IDbConnection conneciton = new SqlConnection(connectionId))
+            using (IDbConnection connection = new SqlConnection(connectionId))
             {
-                var list = conneciton.QueryAsync<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure).Result.ToList();
+                connection.Open();
+                var list = await Task.Run(() => connection.QueryAsync<T>(storedProcedure, parameters).Result.ToList());
+                connection.Close();
                 return list;
             }
         }
@@ -39,7 +41,9 @@ namespace DorksAndDice.DB.DBAccess
         {
             using (IDbConnection conneciton = new SqlConnection(connectionId))
             {
-               await conneciton.ExecuteAsync(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+                conneciton.Open();
+                await conneciton.ExecuteAsync(storedProcedure, parameters);
+                conneciton.Close();
             }
         }
 

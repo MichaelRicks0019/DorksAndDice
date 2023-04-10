@@ -19,22 +19,22 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
 
         public Task Delete(int id)
         {
-            return _db.SaveData("Product_Delete", id);
+            throw new NotImplementedException();
         }
 
         public Task<List<Product>> GetAll()
         {
-            return _db.LoadData<Product, dynamic>("Product_GetAll", new { });
+            throw new NotImplementedException();
         }
 
         public Task<List<Product>> GetById(int id)
         {
-            return _db.LoadData<Product, int>("Product_GetById", id);
+            throw new NotImplementedException();
         }
 
         public Task<List<Product>> GetByName(string name)
         {
-            return _db.LoadData<Product, string>("Product_GetByName", name);
+            throw new NotImplementedException();
         }
 
         public Task<List<Product>> GetByPrice(decimal price)

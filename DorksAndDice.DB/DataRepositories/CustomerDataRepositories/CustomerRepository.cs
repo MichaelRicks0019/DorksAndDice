@@ -1,5 +1,4 @@
 ﻿using DorksAndDice.DB.DBAccess;
-using DorksAndDice.DB.Interfaces;
 using DorksAndDice.Logic.Models.CustomerData;
 using System;
 using System.Collections.Generic;
@@ -18,98 +17,103 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
             _db = db;
         }
 
-        public int ActiveCount()
+        public async Task<int> ActiveCount()
         {
-            return _db.LoadData<int, dynamic>("CustomerData_ActiveCount", new { }).Result.FirstOrDefault();
+            var results = await _db.LoadData<int, dynamic>("dbo.CustomerData_ActiveCount", new { });
+            return results.FirstOrDefault();
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            return _db.SaveData("CustomerData_Delete", id);
-        }
-
-        public Task<List<CustomerData>> GetAll()
-        {
-            return _db.LoadData<CustomerData, dynamic>("CustomerData_GetAll", new { });
-        }
-
-        public Task<List<CustomerData>> GetByAddressId(int addressId)
-        {
-            return _db.LoadData<CustomerData, int>("CustomerData_GetByAddressId", addressId);
-        }
-
-        public Task<List<CustomerData>> GetByEmail(string email)
-        {
-            return _db.LoadData<CustomerData, string>("CustomerData_GetByEmail", email);
+            await _db.SaveData("dbo.CustomerData_Delete", id);
 
         }
 
-        public Task<List<CustomerData>> GetByFirstName(string name)
+        public async Task<List<CustomerData>> GetAll()
         {
-            return _db.LoadData<CustomerData, string>("CustomerData_GetByFirstName", name);
-
+            var results = await _db.LoadData<CustomerData, dynamic>("dbo.CustomerData_GetAll", new { });
+            return results.ToList();
         }
 
-        public Task<List<CustomerData>> GetByFullName(string fullName)
+        public async Task<List<CustomerData>> GetByAddressId(int addressId)
         {
-            return _db.LoadData<CustomerData, string>("CustomerData_GetByFullName", fullName);
-
+            var results = await _db.LoadData<CustomerData, int>("dbo.CustomerData_GetByAddressId", addressId);
+            return results.ToList();
         }
 
-        public Task<List<CustomerData>> GetById(int id)
+        public async Task<List<CustomerData>> GetByEmail(string email)
         {
-            return _db.LoadData<CustomerData, int>("CustomerData_GetById", id);
-
+            var results = await _db.LoadData<CustomerData, string>("dbo.CustomerData_GetByEmail", email);
+            return results.ToList();
         }
 
-        public Task<List<CustomerData>> GetByLastName(string lastName)
+        public async Task<List<CustomerData>> GetByFirstName(string name)
         {
-            return _db.LoadData<CustomerData, string>("CustomerData_GetByLastName", lastName);
-
+            var results = await _db.LoadData<CustomerData, string>("dbo.CustomerData_GetByFirstName", name);
+            return results.ToList();
         }
 
-        public Task<List<CustomerData>> GetByMiddleName(string name)
+        public async Task<List<CustomerData>> GetByFullName(string fullName)
         {
-            return _db.LoadData<CustomerData, string>("CustomerData_GetByMiddleName", name);
-
+            var results = await _db.LoadData<CustomerData, string>("dbo.CustomerData_GetByFullName", fullName);
+            return results.ToList();
         }
 
-        public Task<List<CustomerData>> GetByPhoneNumber(string phoneNumber)
+        public async Task<List<CustomerData>> GetById(int id)
         {
-            return _db.LoadData<CustomerData, string>("CustomerData_GetByPhoneNumber", phoneNumber);
-
+            var results = await _db.LoadData<CustomerData, int>("dbo.CustomerData_GetById", id);
+            return results.ToList();
         }
 
-        public DateTime GetCreateDate(int customerId)
+        public async Task<List<CustomerData>> GetByLastName(string lastName)
         {
-            return _db.LoadData<DateTime, int>("CustomerData_GetByAddressId", customerId).Result.FirstOrDefault();
-
+            var results = await _db.LoadData<CustomerData, string>("dbo.CustomerData_GetByLastName", lastName);
+            return results.ToList();
         }
 
-        public Task Insert(CustomerData entity)
+        public async Task<List<CustomerData>> GetByMiddleName(string name)
         {
-            return _db.SaveData("CustomerData_Insert @First_Name, @Middle_Name, @Last_Name, @Email, @Phone_Number, @Address_Id, @Status_Active, @Create_Date, @Last_Logged_On",
+            var results = await _db.LoadData<CustomerData, string>("dbo.CustomerData_GetByMiddleName", name);
+            return results.ToList();
+        }
+
+        public async Task<List<CustomerData>> GetByPhoneNumber(string phoneNumber)
+        {
+            var results = await _db.LoadData<CustomerData, string>("dbo.CustomerData_GetByPhoneNumber", phoneNumber);
+            return results.ToList();
+        }
+
+        public async Task<DateTime> GetCreateDate(int customerId)
+        {
+            var results = await _db.LoadData<DateTime, int>("dbo.CustomerData_GetByAddressId", customerId);
+            return results.FirstOrDefault();
+        }
+
+        public async Task Insert(CustomerData entity)
+        {
+            await _db.SaveData("CustomerData_Insert @First_Name, @Middle_Name, @Last_Name, @Email, @Phone_Number, @Address_Id, @Status_Active, @Create_Date, @Last_Logged_On",
                 new
                 {
-                    entity.Middle_Name,
-                    entity.Last_Name,
-                    entity.Email,
-                    entity.Phone_Number,
-                    entity.Address_Id,
-                    entity.Status_Active,
-                    entity.Create_Date,
-                    entity.Last_Logged_On
+                    Middle_Name = entity.Middle_Name,
+                    Last_Name = entity.Last_Name,
+                    Email = entity.Email,
+                    Phone_Number = entity.Phone_Number,
+                    Address_Id = entity.Address_Id,
+                    Status_Active = entity.Status_Active,
+                    Create_Date = entity.Create_Date,
+                    Last_Logged_On = entity.Last_Logged_On
                 });
         }
 
-        public DateTime LastLoggedOn(int customerId)
+        public async Task<DateTime> LastLoggedOn(int customerId)
         {
-            return _db.LoadData<DateTime, int>("CustomerData_LastLoggedOn", customerId).Result.FirstOrDefault();
+            var results = await _db.LoadData<DateTime, int>("CustomerData_LastLoggedOn", customerId);
+            return results.FirstOrDefault();
         }
 
-        public Task Update(CustomerData entity)
+        public async Task Update(CustomerData entity)
         {
-            return _db.SaveData("CustomerData_Insert", entity);
+            await _db.SaveData("CustomerData_Insert", entity);
 
         }
     }

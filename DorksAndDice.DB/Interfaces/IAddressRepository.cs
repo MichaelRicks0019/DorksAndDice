@@ -1,4 +1,4 @@
-﻿namespace DorksAndDice.DB.Interfaces
+﻿namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 {
     public interface IAddressRepository<Address> where Address : Logic.Models.CustomerData.Address
     {
@@ -8,9 +8,9 @@
         Task<List<Address>> GetByAddress2(string address);
         Task<List<Address>> GetByApartmentNumeber(int addressId);
         Task<List<Address>> GetByCityId(int cityid);
-        Task<List<Address>> GetById(int id);
+        Task<Address?> GetById(int id);
         Task<List<Address>> GetByPostalCode(string postalCode);
-        DateTime GetLastUpdate(int addressId);
+        Task<DateTime> GetLastUpdate(int addressId);
         Task Insert(Address entity);
         Task Update(Address entity);
     }

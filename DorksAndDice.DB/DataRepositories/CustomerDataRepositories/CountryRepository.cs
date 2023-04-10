@@ -1,5 +1,4 @@
 ﻿using DorksAndDice.DB.DBAccess;
-using DorksAndDice.DB.Interfaces;
 using DorksAndDice.Logic.Models.CustomerData;
 using System;
 using System.Collections.Generic;
@@ -18,39 +17,43 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
             _db = db;
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            return _db.SaveData("Country_Delete @Country_Id", id);
+            await _db.SaveData("dbo.Country_Delete @Country_Id", id);
         }
 
-        public Task<List<Country>> GetAll()
+        public async Task<List<Country>> GetAll()
         {
-            return _db.LoadData<Country, dynamic>("Country_GetAll", new { });
+            var results = await _db.LoadData<Country, dynamic>("dbo.Country_GetAll", new { });
+            return results.ToList();
         }
 
-        public Task<List<Country>> GetById(int id)
+        public async Task<Country?> GetById(int id)
         {
-            return _db.LoadData<Country, int>("Country_GetById @Country_Id", id);
+            var results = await _db.LoadData<Country, int>("dbo.Country_GetById @Country_Id", id);
+            return results.FirstOrDefault();
         }
 
-        public Task<List<Country>> GetByName(string name)
+        public async Task<List<Country>> GetByName(string name)
         {
-            return _db.LoadData<Country, string>("Country_GetByName @Country_Name", name);
+            var results = await _db.LoadData<Country, string>("dbo.Country_GetByName @Country_Name", name);
+            return results.ToList();
         }
 
-        public Task Insert(Country entity)
+        public async Task Insert(Country entity)
         {
-            return _db.SaveData("Country_Insert @Country_Name, @Last_Update", new { entity.Country_Name, entity.Last_Update });
+            await _db.SaveData("dbo.Country_Insert @Country_Name, @Last_Update", new { Country_Name = entity.Country_Name, Last_Update = entity.Last_Update });
         }
 
-        public DateTime LastUpdate(int countryId)
+        public async Task<DateTime> LastUpdate(int countryId)
         {
-            return _db.LoadData<DateTime, int>("Country_LastUpdate @Country_Id", countryId).Result.FirstOrDefault();
+            var results = await _db.LoadData<DateTime, int>("dbo.Country_LastUpdate @Country_Id", countryId);
+            return results.FirstOrDefault();
         }
 
-        public Task Update(Country entity)
+        public async Task Update(Country entity)
         {
-            return _db.SaveData("Country_Insert @Country_Name, @Last_Update", entity);
+            await _db.SaveData("dbo.Country_Insert @Country_Name, @Last_Update", entity);
         }
     }
 }

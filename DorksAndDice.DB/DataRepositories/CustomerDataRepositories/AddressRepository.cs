@@ -1,5 +1,4 @@
 ﻿using DorksAndDice.DB.DBAccess;
-using DorksAndDice.DB.Interfaces;
 using DorksAndDice.Logic.Models.CustomerData;
 using System;
 using System.Collections.Generic;
@@ -18,61 +17,69 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
             _db = db;
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            return _db.SaveData("dbo.Address_Delete", new { Id = id });
+            await _db.SaveData("dbo.Address_Delete", new { Id = id });
         }
 
-        public Task<List<Address>> GetAll()
+        public async Task<List<Address>> GetAll()
         {
-            return _db.LoadData<Address, dynamic>("dbo.Address_GetAll", new { });
+            var results = await _db.LoadData<Address, dynamic>("dbo.Address_GetAll", new { });
+            return results.ToList();
         }
 
-        public Task<List<Address>> GetByAddress1(string address)
+        public async Task<List<Address>> GetByAddress1(string address)
         {
-            return _db.LoadData<Address, string>("dbo.Address_GetByAddress1", address);
+            var results = await _db.LoadData<Address, string>("dbo.Address_GetByAddress1", address);
+            return results.ToList();
         }
 
-        public Task<List<Address>> GetByAddress2(string address)
+        public async Task<List<Address>> GetByAddress2(string address)
         {
-            return _db.LoadData<Address, string>("dbo.Address_GetByAddress2", address);
+            var results = await _db.LoadData<Address, string>("dbo.Address_GetByAddress2", address);
+            return results.ToList();
         }
 
-        public Task<List<Address>> GetByApartmentNumeber(int addressId)
+        public async Task<List<Address>> GetByApartmentNumeber(int addressId)
         {
-            return _db.LoadData<Address, int>("dbo.Address_GetByApartmentNumber", addressId);
+            var results = await _db.LoadData<Address, int>("dbo.Address_GetByApartmentNumber", addressId);
+            return results.ToList();
         }
 
-        public Task<List<Address>> GetByCityId(int cityid)
+        public async Task<List<Address>> GetByCityId(int cityid)
         {
-            return _db.LoadData<Address, int>("dbo.Address_GetByCityId", cityid);
+            var results = await _db.LoadData<Address, int>("dbo.Address_GetByCityId", cityid);
+            return results.ToList();
         }
 
-        public Task<List<Address>> GetById(int id)
+        public async Task<Address?> GetById(int id)
         {
-            return _db.LoadData<Address, int>("dbo.Address_GetById", id);
-
-        }
-
-        public Task<List<Address>> GetByPostalCode(string postalCode)
-        {
-            return _db.LoadData<Address, string>("dbo.Address_GetByPostalCode", postalCode);
+            var results = await _db.LoadData<Address, int>("dbo.Address_GetById", id);
+            return results.FirstOrDefault();
 
         }
 
-        public DateTime GetLastUpdate(int addressId)
+        public async Task<List<Address>> GetByPostalCode(string postalCode)
         {
-            return _db.LoadData<DateTime, int>("dbo.Address_GetById", addressId).Result.FirstOrDefault();
+            var results = await _db.LoadData<Address, string>("dbo.Address_GetByPostalCode", postalCode);
+            return results.ToList();
+
         }
 
-        public Task Insert(Address entity)
+        public async Task<DateTime> GetLastUpdate(int addressId)
         {
-            return _db.SaveData("dbo.Address_Insert @Address1, @Address2, @City_Id, @Apartment_Number, @Postal_Code, @Last_Update", new { entity.Address1, entity.Address2, entity.City_Id, entity.Apartment_Number, entity.Postal_Code, entity.Last_Update });
+            var results = await _db.LoadData<DateTime, int>("dbo.Address_GetById", addressId);
+            return results.FirstOrDefault();
         }
 
-        public Task Update(Address entity)
+        public async Task Insert(Address entity)
         {
-            return _db.SaveData("dbo.Address_Insert @Address_Id, @Address1, @Address2, @City_Id, @Apartment_Number, @Postal_Code, @Last_Update", entity);
+            await _db.SaveData("dbo.Address_Insert @Address1, @Address2, @City_Id, @Apartment_Number, @Postal_Code, @Last_Update", new { Address1 = entity.Address1, Address2 = entity.Address2, City_Id = entity.City_Id, Apartment_Number = entity.Apartment_Number, Postal_Code = entity.Postal_Code, Last_Update = entity.Last_Update });
+        }
+
+        public async Task Update(Address entity)
+        {
+            await _db.SaveData("dbo.Address_Insert @Address_Id, @Address1, @Address2, @City_Id, @Apartment_Number, @Postal_Code, @Last_Update", entity);
         }
     }
 }

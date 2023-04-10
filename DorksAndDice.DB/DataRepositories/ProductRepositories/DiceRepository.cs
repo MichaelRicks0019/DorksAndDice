@@ -1,4 +1,5 @@
 ﻿using DorksAndDice.DB.DBAccess;
+using DorksAndDice.DB.Interfaces;
 using DorksAndDice.Logic.Interfaces;
 using DorksAndDice.Logic.Models.Product;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DorksAndDice.DB.DataRepositories.ProductRepositories
 {
-    public class DiceRepository<Dice> : IDiceRepository<Dice> where Dice: Logic.Models.Product.Dice
+    public class DiceRepository<Dice> : IDiceRepository<Dice> where Dice : Logic.Models.Product.Dice
     {
         private readonly ISqlDataAccess _db;
 
@@ -18,44 +19,49 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
             _db = db;
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            return _db.SaveData("Dice_Delete", id);
+            await _db.SaveData("dbo.Dice_Delete", id);
         }
 
-        public Task<List<Dice>> GetAll()
+        public async Task<List<Dice>> GetAll()
         {
-            return _db.LoadData<Dice, dynamic>("Dice_GetAll", new { });
+            var results = await _db.LoadData<Dice, dynamic>("dbo.Dice_GetAll", new { });
+            return results.ToList();
         }
 
-        public Task<List<Dice>> GetById(int id)
+        public async Task<List<Dice>> GetById(int id)
         {
-            return _db.LoadData<Dice, int>("Dice_GetById", id);
+            var results = await _db.LoadData<Dice, int>("dbo.Dice_GetById", id);
+            return results.ToList();
         }
 
-        public Task<List<Dice>> GetDiceById(int DiceId)
+        public async Task<Dice?> GetDiceById(int DiceId)
         {
-            return _db.LoadData<Dice, int>("Dice_GetDiceById", DiceId);
+            var results = await _db.LoadData<Dice, int>("dbo.Dice_GetDiceById", DiceId);
+            return results.FirstOrDefault();
         }
 
-        public Task<List<Dice>> GetDiceCharacteristicBy(string Edge = "0", string Color = "0", string Material = "0", string Style = "0", string Type = "0", string Size = "0")
+        public async Task<List<Dice>> GetDiceCharacteristicBy(string Edge = "0", string Color = "0", string Material = "0", string Style = "0", string Type = "0", string Size = "0")
         {
-            return _db.LoadData<Dice, dynamic>("Dice_GetDiceCharacteristicBy @Edge, @Color, @Material, @Style, @Type, @Size", new { Edge, Color, Material, Style, Type, Size });
+            var results = await _db.LoadData<Dice, dynamic>("Dice_GetDiceByCharacteristic @Edge, @Color, @Material, @Style, @Type, @Size", new { Edge = Edge, Color = Color, Material = Material, Style = Style, Type = Type, Size = Size });
+            return results.ToList();
         }
 
-        public Task<List<Product>> GetProductById(int productId)
+        public async Task<Product?> GetProductById(int productId)
         {
-            return _db.LoadData<Product, int>("Dice_GetProductById", productId);
+            var results = await _db.LoadData<Product, int>("Dice_GetProductById", productId);
+            return results.FirstOrDefault();
         }
 
-        public Task Insert(Dice entity)
+        public async Task Insert(Dice entity)
         {
-            return _db.SaveData("Dice_Insert @Product_Id, @Edge, @Color, @Material, @Style, @Type, @Size", new { entity.Product_Id, entity.Edge, entity.Color, entity.Material, entity.Style, entity.Type, entity.Size });
+            await _db.SaveData("Dice_Insert @Product_Id, @Edge, @Color, @Material, @Style, @Type, @Size", new { Product_Id = entity.Product_Id, Edge = entity.Edge, Color = entity.Color, Material = entity.Material, Style = entity.Style, Type = entity.Type, Size = entity.Size });
         }
 
-        public Task Update(Dice entity)
+        public async Task Update(Dice entity)
         {
-            return _db.SaveData("Dice_Insert @Product_Id, @Edge, @Color, @Material, @Style, @Type, @Size", entity);
+            await _db.SaveData("Dice_Insert @Product_Id, @Edge, @Color, @Material, @Style, @Type, @Size", entity);
 
         }
     }

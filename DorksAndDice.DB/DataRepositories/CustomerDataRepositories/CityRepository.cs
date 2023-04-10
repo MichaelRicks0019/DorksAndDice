@@ -5,61 +5,68 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DorksAndDice.Logic.Models.CustomerData;
+using DorksAndDice.DB.Interfaces;
 
 namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 {
     public class CityRepository<City> : ICityRepository<City> where City : Logic.Models.CustomerData.City
     {
         private readonly ISqlDataAccess _db;
+        private City insert;
 
         public CityRepository(ISqlDataAccess db)
         {
             _db = db;
         }
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            return _db.SaveData("dbo.City_Delete @City_Id", new { City_Id = id });
+            await _db.SaveData("dbo.City_Delete @City_Id", new { City_Id = id });
         }
 
-        public Task<List<City>> GetAll()
+        public async Task<List<City>> GetAll()
         {
-            return _db.LoadData<City, dynamic>("dbo.City_GetAll", new { });
+            var results = await _db.LoadData<City, dynamic>("dbo.City_GetAll", new { });
+            return results.ToList();
         }
 
         public async Task<City?> GetById(int id)
         {
-            var results = await _db.LoadData<City, dynamic>("dbo.City_GetById", new { Id = id });
+            var results = await _db.LoadData<City, dynamic>("dbo.City_GetById @City_Id", new { City_Id = id });
             return results.FirstOrDefault();
         }
 
-        public Task<List<City>> GetByName(string name)
+        public async Task<List<City>> GetByName(string name)
         {
-            return _db.LoadData<City, string>("dbo.City_GetByName @City_Name", name);
+            var results = await _db.LoadData<City, string>("dbo.City_GetByName @City_Name", name);
+            return results.ToList();
         }
 
-        public Task<List<City>> GetByState(int state)
+        public async Task<List<City>> GetByState(int state)
         {
-            return _db.LoadData<City, int>("dbo.City_GetByState @State_Name", state);
+            var results = await _db.LoadData<City, int>("dbo.City_GetByState @State_Name", state);
+            return results.ToList();
         }
 
-        public int GetCountryId(int cityId)
+        public async Task<int> GetCountryId(int cityId)
         {
-            return _db.LoadData<int, int>("dbo.City_GetCountryId @City_Id", cityId).Result.FirstOrDefault();
+            var results = await _db.LoadData<int, int>("dbo.City_GetCountryId @City_Id", cityId);
+            return results.FirstOrDefault();
         }
 
-        public Task Insert(City entity)
+        public async Task Insert(City entity)
         {
-            return _db.SaveData("dbo.City_Insert @Country_Id, @City_Name, @State_Name, @Last_Update", new { Country_Id = entity.Country_Id, City_Name = entity.City_Name, State_Name = entity.State_Name, Last_Update = entity.Last_Update });
+            await _db.SaveData("dbo.City_Insert @Country_Id, @City_Name, @State_Name, @Last_Update", new { Country_Id = entity.Country_Id, City_Name = entity.City_Name, State_Name = entity.State_Name, Last_Update = entity.Last_Update });
         }
 
-        public DateTime LastUpdate(int cityId)
+        public async Task<DateTime> LastUpdate(int cityId)
         {
-            return _db.LoadData<DateTime, int>("dbo.City_GetLastUpdate @City_Id", cityId).Result.FirstOrDefault();
+            var results = await _db.LoadData<DateTime, int>("dbo.City_GetLastUpdate @City_Id", cityId);
+            return results.FirstOrDefault();
         }
 
-        public Task Update(City entity)
+        public async Task Update(City entity)
         {
-            return _db.SaveData("dbo.City_Insert @Country_Id, @City_Name, @State_Name, @Last_Update", entity);
+            await _db.SaveData("dbo.City_Insert @Country_Id, @City_Name, @State_Name, @Last_Update", entity);
         }
     }
 }

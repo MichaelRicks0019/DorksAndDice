@@ -1,4 +1,4 @@
-﻿namespace DorksAndDice.DB.DataRepositories
+﻿namespace DorksAndDice.DB.Interfaces
 {
     public interface ICityRepository<City> where City : Logic.Models.CustomerData.City
     {
@@ -7,9 +7,9 @@
         Task<City?> GetById(int id);
         Task<List<City>> GetByName(string name);
         Task<List<City>> GetByState(int state);
-        int GetCountryId(int cityId);
+        Task<int> GetCountryId(int cityId);
         Task Insert(City entity);
-        DateTime LastUpdate(int cityId);
+        Task<DateTime> LastUpdate(int cityId);
         Task Update(City entity);
     }
 }
