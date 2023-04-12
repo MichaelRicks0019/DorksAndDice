@@ -9,5 +9,5 @@ using Microsoft.Extensions.Configuration;
 
 ISqlDataAccess i = new SqlDataAccess();
 IDiceRepository<Dice> Dice = new DiceRepository<Dice>(i);
-var type = Dice.GetDiceCharacteristicBy(Edge: "Sharp");
+List<Dice> type = Dice.GetDiceCharacteristicBy(Edge: "Sharp");
 Console.ReadLine();

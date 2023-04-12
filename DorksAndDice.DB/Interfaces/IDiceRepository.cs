@@ -8,7 +8,7 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
         Task<List<Dice>> GetAll();
         Task<List<Dice>> GetById(int id);
         Task<Dice?> GetDiceById(int DiceId);
-        Task<List<Dice>> GetDiceCharacteristicBy(string Edge = "0", string Color = "0", string Material = "0", string Style = "0", string Type = "0", string Size = "0");
+        Task<List<Dice>> GetDiceCharacteristicBy(string? Edge = null, string? Color = null, string? Material = null, string? Style = null, string? Type = null, string? Size = null);
         Task<Product?> GetProductById(int productId);
         Task Insert(Dice entity);
         Task Update(Dice entity);

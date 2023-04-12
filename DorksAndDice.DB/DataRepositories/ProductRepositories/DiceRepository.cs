@@ -13,6 +13,7 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
     public class DiceRepository<Dice> : IDiceRepository<Dice> where Dice : Logic.Models.Product.Dice
     {
         private readonly ISqlDataAccess _db;
+        private Dice dice;
 
         public DiceRepository(ISqlDataAccess db)
         {
@@ -42,7 +43,7 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
             return results.FirstOrDefault();
         }
 
-        public async Task<List<Dice>> GetDiceCharacteristicBy(string Edge = "0", string Color = "0", string Material = "0", string Style = "0", string Type = "0", string Size = "0")
+        public async Task<List<Dice>> GetDiceCharacteristicBy(string? Edge = null, string? Color = null, string? Material = null, string? Style = null, string? Type = null, string? Size = null)
         {
             var results = await _db.LoadData<Dice, dynamic>("Dice_GetDiceByCharacteristic @Edge, @Color, @Material, @Style, @Type, @Size", new { Edge = Edge, Color = Color, Material = Material, Style = Style, Type = Type, Size = Size });
             return results.ToList();
