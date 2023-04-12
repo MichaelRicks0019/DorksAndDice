@@ -10,9 +10,8 @@ namespace DorksAndDice.DB.Interfaces
 {
     public interface IOrdersRepository<Orders> : IGenericRepository<Orders>
     {
-        List<Orders> GetByCustomerId (int customerId);
-
-        List<Orders> GetByShoppingCartId(int shoppingCartId);
+        Task<List<Orders>> GetByCustomerId (int customerId);
+        Task<List<Orders>> GetByShoppingCartId(int shoppingCartId);
 
     }
 }

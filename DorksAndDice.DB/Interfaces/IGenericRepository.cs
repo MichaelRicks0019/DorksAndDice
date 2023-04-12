@@ -9,7 +9,7 @@ namespace DorksAndDice.Logic.Interfaces
     public interface IGenericRepository<T>
     {
         //Gets entity by Id. Main Id, not Foriegn Key
-        Task<List<T>> GetById(int id);
+        Task<T?> GetById(int id);
         //Gets all entities an returns list
         Task<List<T>> GetAll();
         //Adds entity to database

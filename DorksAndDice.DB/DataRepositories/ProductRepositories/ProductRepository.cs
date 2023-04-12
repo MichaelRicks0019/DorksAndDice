@@ -12,54 +12,60 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
     {
         private readonly ISqlDataAccess _db;
 
-        public ProductRepository(ISqlDataAccess db)
+        public ProductRepository (ISqlDataAccess db)
         {
             _db = db;
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            await _db.SaveData("dbo.Product_Delete @Product_Id", id);
         }
 
-        public Task<List<Product>> GetAll()
+        public async Task<List<Product>> GetAll()
         {
-            throw new NotImplementedException();
+            var results = await _db.LoadData<Product, dynamic>("dbo.Product_GetAll", new { });
+            return results.ToList();
         }
 
-        public Task<List<Product>> GetById(int id)
+        public async Task<Product?> GetById(int id)
         {
-            throw new NotImplementedException();
+            var results = await _db.LoadData<Product, int>("dbo.Product_GetById @Product_Id", id);
+            return results.FirstOrDefault();
         }
 
-        public Task<List<Product>> GetByName(string name)
+        public async Task<List<Product>> GetByName(string name)
         {
-            throw new NotImplementedException();
+            var results = await _db.LoadData<Product, string>("dbo.Product_GetByName @Product_Name", name);
+            return results.ToList();
         }
 
-        public Task<List<Product>> GetByPrice(decimal price)
+        public async Task<List<Product>> GetByPrice(decimal price)
         {
-            throw new NotImplementedException();
+            var results = await _db.LoadData<Product, decimal>("dbo.Product_GetByPrice @Product_Price", price);
+            return results.ToList();
         }
 
-        public Task<List<Product>> GetByQuantity(int quantity)
+        public async Task<List<Product>> GetByQuantity(int quantity)
         {
-            throw new NotImplementedException();
+            var results = await _db.LoadData<Product, int>("dbo.Product_GetByQuantity @Product_Quantity", quantity);
+            return results.ToList();
         }
 
-        public Task<List<Product>> GetByType(string type)
+        public async Task<List<Product>> GetByType(string type)
         {
-            throw new NotImplementedException();
+            var results = await _db.LoadData<Product, string>("dbo.Product_GetByType @Product_Type", type);
+            return results.ToList();
         }
 
-        public Task Insert(Product entity)
+        public async Task Insert(Product entity)
         {
-            throw new NotImplementedException();
+            await _db.SaveData("dbo.Product_Insert @Product_Name, @Product_Quantity, @Product_Price, @Product_Type", new { entity.Product_Name, entity.Product_Quantity, entity.Product_Price, entity.Product_Type });
         }
 
-        public Task Update(Product entity)
+        public async Task Update(Product entity)
         {
-            throw new NotImplementedException();
+            await _db.SaveData("dbo.Product_Update @Product_Id, @Product_Name, @Product_Quantity, @Product_Price, @Product_Type", entity);
         }
     }
 }

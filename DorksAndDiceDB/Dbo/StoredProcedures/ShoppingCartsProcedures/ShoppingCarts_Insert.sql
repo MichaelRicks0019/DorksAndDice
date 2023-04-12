@@ -1,5 +1,4 @@
 ﻿CREATE PROCEDURE [dbo].[ShoppingCarts_Insert]
-	@Customer_Id int,
 	@ShoppingCart_Id int,
 	@Product_Id int,
 	@Quantity int

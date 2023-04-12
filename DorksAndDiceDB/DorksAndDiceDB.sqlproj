@@ -160,7 +160,7 @@
     <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_ClearCart.sql" />
     <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_Delete.sql" />
     <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_GetTotal.sql" />
-    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_GetProducts.sql" />
+    <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_SendCartToOrders.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DorksAndDiceDB.refactorlog" />
