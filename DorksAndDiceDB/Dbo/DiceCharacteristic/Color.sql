@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Color]
 (
 	[Color_Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Color] NVARCHAR(75) NOT NULL
+    [Dice_Color] NVARCHAR(75) NOT NULL
 )

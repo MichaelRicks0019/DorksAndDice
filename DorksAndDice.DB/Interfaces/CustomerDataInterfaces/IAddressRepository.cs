@@ -1,6 +1,6 @@
 ﻿using DorksAndDice.Logic.Interfaces;
 
-namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
+namespace DorksAndDice.DB.Interfaces.CustomerDataInterfaces
 {
     public interface IAddressRepository<Address> : IGenericRepository<Address> where Address : Logic.Models.CustomerData.Address
     {

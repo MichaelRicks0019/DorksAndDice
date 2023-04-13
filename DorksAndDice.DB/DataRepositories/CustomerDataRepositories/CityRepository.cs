@@ -5,14 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DorksAndDice.Logic.Models.CustomerData;
-using DorksAndDice.DB.Interfaces;
+using DorksAndDice.DB.Interfaces.CustomerDataInterfaces;
 
 namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 {
     public class CityRepository<City> : ICityRepository<City> where City : Logic.Models.CustomerData.City
     {
         private readonly ISqlDataAccess _db;
-        private City insert;
 
         public CityRepository(ISqlDataAccess db)
         {

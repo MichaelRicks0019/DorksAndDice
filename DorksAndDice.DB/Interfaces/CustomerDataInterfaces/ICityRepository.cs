@@ -1,6 +1,6 @@
 ﻿using DorksAndDice.Logic.Interfaces;
 
-namespace DorksAndDice.DB.Interfaces
+namespace DorksAndDice.DB.Interfaces.CustomerDataInterfaces
 {
     public interface ICityRepository<City> : IGenericRepository<City> where City : Logic.Models.CustomerData.City
     {

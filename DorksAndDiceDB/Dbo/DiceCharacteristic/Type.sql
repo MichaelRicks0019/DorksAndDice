@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Type]
 (
 	[Type_Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Type] NVARCHAR(75) NOT NULL
+    [Dice_Type] NVARCHAR(75) NOT NULL
 )

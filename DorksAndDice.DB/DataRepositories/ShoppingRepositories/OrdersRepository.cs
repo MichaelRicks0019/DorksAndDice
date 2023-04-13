@@ -1,5 +1,5 @@
 ﻿using DorksAndDice.DB.DBAccess;
-using DorksAndDice.DB.Interfaces;
+using DorksAndDice.DB.Interfaces.ShoppingInterfaces;
 using DorksAndDice.Logic.Models.Shopping;
 using System;
 using System.Collections.Generic;

@@ -1,5 +1,5 @@
 ﻿using DorksAndDice.DB.DBAccess;
-using DorksAndDice.Logic.Interfaces;
+using DorksAndDice.DB.Interfaces.ProductInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

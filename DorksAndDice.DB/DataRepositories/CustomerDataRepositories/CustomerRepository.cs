@@ -1,4 +1,5 @@
 ﻿using DorksAndDice.DB.DBAccess;
+using DorksAndDice.DB.Interfaces.CustomerDataInterfaces;
 using DorksAndDice.Logic.Models.CustomerData;
 using System;
 using System.Collections.Generic;
@@ -59,10 +60,10 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
             return results.ToList();
         }
 
-        public async Task<List<CustomerData>> GetById(int id)
+        public async Task<CustomerData?> GetById(int id)
         {
             var results = await _db.LoadData<CustomerData, int>("dbo.CustomerData_GetById", id);
-            return results.ToList();
+            return results.FirstOrDefault();
         }
 
         public async Task<List<CustomerData>> GetByLastName(string lastName)

@@ -2,6 +2,7 @@
 using DorksAndDice.DB.DataRepositories.CustomerDataRepositories;
 using DorksAndDice.DB.DataRepositories.ProductRepositories;
 using DorksAndDice.DB.DBAccess;
+using DorksAndDice.DB.Interfaces.ProductInterfaces;
 using DorksAndDice.Logic.Interfaces;
 using DorksAndDice.Logic.Models.CustomerData;
 using DorksAndDice.Logic.Models.Product;

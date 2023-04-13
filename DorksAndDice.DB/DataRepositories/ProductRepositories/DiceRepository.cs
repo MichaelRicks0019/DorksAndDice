@@ -1,5 +1,6 @@
 ﻿using DorksAndDice.DB.DBAccess;
 using DorksAndDice.DB.Interfaces;
+using DorksAndDice.DB.Interfaces.ProductInterfaces;
 using DorksAndDice.Logic.Interfaces;
 using DorksAndDice.Logic.Models.Product;
 using System;
@@ -31,10 +32,10 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
             return results.ToList();
         }
 
-        public async Task<List<Dice>> GetById(int id)
+        public async Task<Dice?> GetById(int id)
         {
             var results = await _db.LoadData<Dice, int>("dbo.Dice_GetById", id);
-            return results.ToList();
+            return results.FirstOrDefault();
         }
 
         public async Task<Dice?> GetDiceById(int DiceId)

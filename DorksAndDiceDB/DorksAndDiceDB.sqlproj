@@ -68,6 +68,9 @@
     <Folder Include="Dbo\DiceCharacteristic" />
     <Folder Include="Dbo\StoredProcedures\OrdersProcedures" />
     <Folder Include="Dbo\StoredProcedures\ShoppingCartsProcedures" />
+    <Folder Include="Dbo\StoredProcedures\DiceCharacteristicProcedures" />
+    <Folder Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\ColorProcedures" />
+    <Folder Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\TypeProcedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Dbo\ProductTable\Dice.sql" />
@@ -161,6 +164,18 @@
     <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_Delete.sql" />
     <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_GetTotal.sql" />
     <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_SendCartToOrders.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\ColorProcedures\Color_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\ColorProcedures\Color_GetByColor.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\ColorProcedures\Color_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\ColorProcedures\Color_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\ColorProcedures\Color_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\ColorProcedures\Color_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\TypeProcedures\Type_GetByType.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\TypeProcedures\Type_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\TypeProcedures\Type_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\TypeProcedures\Type_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\TypeProcedures\Type_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\TypeProcedures\Type_Delete.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DorksAndDiceDB.refactorlog" />
