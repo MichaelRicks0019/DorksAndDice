@@ -1,6 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[Type_Update]
-	@param1 int = 0,
-	@param2 int
+	@Type_Id int,
+	@Dice_Type nvarchar(75)
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	UPDATE [dbo].[Type]
+	SET Type_Id = @Type_Id, 
+	Dice_Type = @Dice_Type
+	WHERE Type_Id = @Type_Id;
+END

@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[Type_GetById]
-	@param1 int = 0,
-	@param2 int
+	@Type_Id nvarchar(75)
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT * 
+	FROM [dbo].[Type]
+	WHERE Type_Id = @Type_Id; 
+END

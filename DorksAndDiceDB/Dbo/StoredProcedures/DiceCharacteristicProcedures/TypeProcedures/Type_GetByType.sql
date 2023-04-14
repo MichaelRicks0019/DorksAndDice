@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[Type_GetByType]
-	@param1 int = 0,
-	@param2 int
+	@Dice_Type nvarchar(75)
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT * 
+	FROM [dbo].[Type]
+	WHERE Dice_Type = @Dice_Type;
+END

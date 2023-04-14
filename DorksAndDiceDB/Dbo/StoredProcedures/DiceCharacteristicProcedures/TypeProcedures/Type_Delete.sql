@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[Type_Delete]
-	@param1 int = 0,
-	@param2 int
+	@Type_Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	DELETE [dbo].[Type]
+	WHERE Type_Id = @Type_Id;
+END
