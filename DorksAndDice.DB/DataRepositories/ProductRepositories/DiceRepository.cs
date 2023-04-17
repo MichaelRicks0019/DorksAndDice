@@ -14,7 +14,6 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
     public class DiceRepository<Dice> : IDiceRepository<Dice> where Dice : Logic.Models.Product.Dice
     {
         private readonly ISqlDataAccess _db;
-        private Dice dice;
 
         public DiceRepository(ISqlDataAccess db)
         {

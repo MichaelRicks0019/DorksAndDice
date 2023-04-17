@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[Style_Insert]
-	@param1 int = 0,
-	@param2 int
+	@Dice_Style nvarchar(75)
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	INSERT INTO [dbo].[Style] (Dice_Style)
+	VALUES (@Dice_Style);
+END

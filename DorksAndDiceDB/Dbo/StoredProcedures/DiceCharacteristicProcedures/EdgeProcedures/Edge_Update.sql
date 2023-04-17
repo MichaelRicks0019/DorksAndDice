@@ -1,6 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[Edge_Update]
-	@param1 int = 0,
-	@param2 int
+	@Edge_Id int,
+	@Dice_Edge nvarchar(75)
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	UPDATE [dbo].[Edge]
+	SET Dice_Edge = @Dice_Edge
+	WHERE Edge_Id = @Edge_Id;
+END

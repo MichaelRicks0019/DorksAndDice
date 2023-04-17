@@ -73,6 +73,8 @@
     <Folder Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\TypeProcedures" />
     <Folder Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\StyleProcedures" />
     <Folder Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\EdgeProcedures" />
+    <Folder Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\MaterialProcedures" />
+    <Folder Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\SizeProcedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Dbo\ProductTable\Dice.sql" />
@@ -183,13 +185,25 @@
     <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\StyleProcedures\Style_GetById.sql" />
     <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\StyleProcedures\Style_Insert.sql" />
     <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\StyleProcedures\Style_Update.sql" />
-    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\ColorProcedures\Style_Delete.sql" />
     <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\EdgeProcedures\Edge_GetByEdge.sql" />
     <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\EdgeProcedures\Edge_GetById.sql" />
     <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\EdgeProcedures\Edge_GetAll.sql" />
     <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\EdgeProcedures\Edge_Insert.sql" />
     <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\EdgeProcedures\Edge_Update.sql" />
     <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\EdgeProcedures\Edge_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\MaterialProcedures\Material_GetByMaterial.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\MaterialProcedures\Material_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\MaterialProcedures\Material_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\MaterialProcedures\Material_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\MaterialProcedures\Material_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\MaterialProcedures\Material_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\StyleProcedures\Style_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\SizeProcedures\Size_GetBySize.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\SizeProcedures\Size_GetById.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\SizeProcedures\SIze_GetAll.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\SizeProcedures\Size_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\SizeProcedures\Size_Update.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\SizeProcedures\Size_Delete.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DorksAndDiceDB.refactorlog" />

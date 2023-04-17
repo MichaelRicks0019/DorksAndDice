@@ -11,7 +11,9 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DorksAndDiceDB", "DorksAndD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DorksAndDice.API", "DorksAndDice.API\DorksAndDice.API.csproj", "{B0F9D49F-CA84-4D62-A771-D8DDFB629F63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{7EADDA94-E923-4651-B837-8D4AA17E71EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.csproj", "{7EADDA94-E923-4651-B837-8D4AA17E71EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DorksAndDiceBasic", "DorksAndDiceBasic\DorksAndDiceBasic.csproj", "{1AAFEA34-2CAC-460D-9185-D186C0B5797D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{7EADDA94-E923-4651-B837-8D4AA17E71EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EADDA94-E923-4651-B837-8D4AA17E71EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EADDA94-E923-4651-B837-8D4AA17E71EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AAFEA34-2CAC-460D-9185-D186C0B5797D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AAFEA34-2CAC-460D-9185-D186C0B5797D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AAFEA34-2CAC-460D-9185-D186C0B5797D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AAFEA34-2CAC-460D-9185-D186C0B5797D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

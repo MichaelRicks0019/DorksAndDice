@@ -10,6 +10,6 @@ namespace DorksAndDice.DB.Interfaces.DiceCharacteristicInterfaces
 {
     public interface IStyleRepository<Style> : IGenericRepository<Style> where Style : Logic.Models.Product.DiceCharacteristics.Style
     {
-        Task<List<Size>> GetByStyle(string style);
+        Task<List<Style>> GetByStyle(string style);
     }
 }

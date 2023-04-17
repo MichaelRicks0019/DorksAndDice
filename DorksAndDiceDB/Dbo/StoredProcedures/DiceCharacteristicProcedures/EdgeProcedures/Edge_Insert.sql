@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[Edge_Insert]
-	@param1 int = 0,
-	@param2 int
+	@Dice_Edge nvarchar(75)
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	INSERT INTO [dbo].[Edge] (Dice_Edge)
+	VALUES (@Dice_Edge);
+END

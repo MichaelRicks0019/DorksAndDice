@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[Edge_Delete]
-	@param1 int = 0,
-	@param2 int
+	@Edge_Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	DELETE [dbo].[Edge]
+	WHERE Edge_Id = @Edge_Id;
+END

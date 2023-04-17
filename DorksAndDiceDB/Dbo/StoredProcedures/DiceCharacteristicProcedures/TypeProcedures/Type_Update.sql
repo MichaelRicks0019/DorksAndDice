@@ -4,7 +4,6 @@
 AS
 BEGIN
 	UPDATE [dbo].[Type]
-	SET Type_Id = @Type_Id, 
-	Dice_Type = @Dice_Type
+	SET Dice_Type = @Dice_Type
 	WHERE Type_Id = @Type_Id;
 END

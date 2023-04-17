@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[Style_GetById]
-	@param1 int = 0,
-	@param2 int
+		@Style_Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT * 
+	FROM [dbo].[Style]
+	WHERE Style_Id = @Style_Id;
+END

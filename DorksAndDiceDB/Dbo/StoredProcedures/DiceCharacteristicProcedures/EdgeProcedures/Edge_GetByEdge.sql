@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[Edge_GetByEdge]
-	@param1 int = 0,
-	@param2 int
+	@Dice_Edge nvarchar(75)
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT *
+	FROM [dbo].[Edge]
+	WHERE Dice_Edge = @Dice_Edge;
+END
