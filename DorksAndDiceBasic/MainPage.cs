@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace DorksAndDiceBasic
 {
-    public partial class Login : Form
+    public partial class MainPage : Form
     {
-        public Login()
+        public MainPage()
         {
             InitializeComponent();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button_Login_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
