@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox_Delete = new System.Windows.Forms.GroupBox();
+            this.label_AmountLeft = new System.Windows.Forms.Label();
+            this.textBox_Quantity = new System.Windows.Forms.TextBox();
             this.comboBox_Products = new System.Windows.Forms.ComboBox();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dorksAndDiceDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -38,8 +40,6 @@
             this.diceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.diceTableAdapter = new DorksAndDiceBasic.DorksAndDiceDataSetTableAdapters.DiceTableAdapter();
             this.productTableAdapter = new DorksAndDiceBasic.DorksAndDiceDataSetTableAdapters.ProductTableAdapter();
-            this.textBox_Quantity = new System.Windows.Forms.TextBox();
-            this.label_AmountLeft = new System.Windows.Forms.Label();
             this.groupBox_Delete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dorksAndDiceDataSetBindingSource)).BeginInit();
@@ -53,12 +53,28 @@
             this.groupBox_Delete.Controls.Add(this.textBox_Quantity);
             this.groupBox_Delete.Controls.Add(this.comboBox_Products);
             this.groupBox_Delete.Controls.Add(this.label_Quantity);
-            this.groupBox_Delete.Location = new System.Drawing.Point(264, 99);
+            this.groupBox_Delete.Location = new System.Drawing.Point(185, 77);
             this.groupBox_Delete.Name = "groupBox_Delete";
             this.groupBox_Delete.Size = new System.Drawing.Size(294, 216);
             this.groupBox_Delete.TabIndex = 0;
             this.groupBox_Delete.TabStop = false;
             this.groupBox_Delete.Text = "Delete";
+            // 
+            // label_AmountLeft
+            // 
+            this.label_AmountLeft.AutoSize = true;
+            this.label_AmountLeft.Location = new System.Drawing.Point(83, 59);
+            this.label_AmountLeft.Name = "label_AmountLeft";
+            this.label_AmountLeft.Size = new System.Drawing.Size(67, 13);
+            this.label_AmountLeft.TabIndex = 1;
+            this.label_AmountLeft.Text = "Amount Left:";
+            // 
+            // textBox_Quantity
+            // 
+            this.textBox_Quantity.Location = new System.Drawing.Point(86, 118);
+            this.textBox_Quantity.Name = "textBox_Quantity";
+            this.textBox_Quantity.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Quantity.TabIndex = 2;
             // 
             // comboBox_Products
             // 
@@ -106,22 +122,6 @@
             // productTableAdapter
             // 
             this.productTableAdapter.ClearBeforeFill = true;
-            // 
-            // textBox_Quantity
-            // 
-            this.textBox_Quantity.Location = new System.Drawing.Point(86, 118);
-            this.textBox_Quantity.Name = "textBox_Quantity";
-            this.textBox_Quantity.Size = new System.Drawing.Size(100, 20);
-            this.textBox_Quantity.TabIndex = 2;
-            // 
-            // label_AmountLeft
-            // 
-            this.label_AmountLeft.AutoSize = true;
-            this.label_AmountLeft.Location = new System.Drawing.Point(83, 59);
-            this.label_AmountLeft.Name = "label_AmountLeft";
-            this.label_AmountLeft.Size = new System.Drawing.Size(67, 13);
-            this.label_AmountLeft.TabIndex = 1;
-            this.label_AmountLeft.Text = "Amount Left:";
             // 
             // Delete
             // 

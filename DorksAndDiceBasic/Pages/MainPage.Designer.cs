@@ -42,6 +42,7 @@
             this.button_Add.TabIndex = 0;
             this.button_Add.Text = "Add";
             this.button_Add.UseVisualStyleBackColor = true;
+            this.button_Add.Click += new System.EventHandler(this.button_Add_Click);
             // 
             // button_ViewAllItems
             // 
@@ -51,6 +52,7 @@
             this.button_ViewAllItems.TabIndex = 1;
             this.button_ViewAllItems.Text = "View All Items";
             this.button_ViewAllItems.UseVisualStyleBackColor = true;
+            this.button_ViewAllItems.Click += new System.EventHandler(this.button_ViewAllItems_Click);
             // 
             // button_Update
             // 
@@ -60,6 +62,7 @@
             this.button_Update.TabIndex = 2;
             this.button_Update.Text = "Update";
             this.button_Update.UseVisualStyleBackColor = true;
+            this.button_Update.Click += new System.EventHandler(this.button_Update_Click);
             // 
             // button_Delete
             // 
@@ -69,6 +72,7 @@
             this.button_Delete.TabIndex = 3;
             this.button_Delete.Text = "Delete";
             this.button_Delete.UseVisualStyleBackColor = true;
+            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
             // 
             // MainPage
             // 

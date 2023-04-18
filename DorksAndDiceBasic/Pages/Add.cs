@@ -15,6 +15,7 @@ namespace DorksAndDiceBasic
         public Add()
         {
             InitializeComponent();
+            
         }
 
         private void label_Quantity_Click(object sender, EventArgs e)
@@ -35,6 +36,11 @@ namespace DorksAndDiceBasic
         private void button_Cancel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_Add_Click(object sender, EventArgs e)
+        {
+            Dice dice = new Dice();
         }
     }
 }

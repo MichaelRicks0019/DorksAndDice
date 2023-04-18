@@ -68,7 +68,6 @@
             this.label_Password.Size = new System.Drawing.Size(53, 13);
             this.label_Password.TabIndex = 2;
             this.label_Password.Text = "Password";
-            this.label_Password.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox_UserName
             // 

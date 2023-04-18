@@ -19,10 +19,7 @@ namespace DorksAndDiceBasic.Pages
 
         private void Delete_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dorksAndDiceDataSet.Product' table. You can move, or remove it, as needed.
-            this.productTableAdapter.Fill(this.dorksAndDiceDataSet.Product);
-            // TODO: This line of code loads data into the 'dorksAndDiceDataSet.Dice' table. You can move, or remove it, as needed.
-            this.diceTableAdapter.Fill(this.dorksAndDiceDataSet.Dice);
+           
 
         }
     }

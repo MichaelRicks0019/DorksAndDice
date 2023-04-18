@@ -81,6 +81,12 @@
     <Compile Include="Pages\Update.Designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ViewAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\ViewAll.Designer.cs">
+      <DependentUpon>ViewAll.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Pages\Add.resx">
@@ -97,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Update.resx">
       <DependentUpon>Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ViewAll.resx">
+      <DependentUpon>ViewAll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,6 +139,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DorksAndDice.DB\DorksAndDice.DB.csproj">
+      <Project>{3055fc1c-7097-4414-b861-63c4e206c35c}</Project>
+      <Name>DorksAndDice.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DorksAndDice.Logic\DorksAndDice.Logic.csproj">
+      <Project>{dd6c263d-3305-42d3-9f3d-7cdd813c28c2}</Project>
+      <Name>DorksAndDice.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DorksAndDiceDB\DorksAndDiceDB.sqlproj">
+      <Project>{d02bb7ae-c39b-4f6c-8748-76db2f1a56d5}</Project>
+      <Name>DorksAndDiceDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

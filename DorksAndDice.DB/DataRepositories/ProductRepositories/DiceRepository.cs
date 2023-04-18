@@ -34,7 +34,7 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
 
         public async Task<Dice?> GetById(int id)
         {
-            var results = await _db.LoadData<Dice, int>("dbo.Dice_GetById", id);
+            var results = await _db.LoadData<Dice, int>("dbo.Dice_GetById @Dice_Id", id);
             return results.FirstOrDefault();
         }
 
@@ -56,32 +56,20 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
             return results.ToList();
         }
 
-        public async Task<Dice?> GetDiceById(int DiceId)
-        {
-            var results = await _db.LoadData<Dice, int>("dbo.Dice_GetDiceById", DiceId);
-            return results.FirstOrDefault();
-        }
-
         public async Task<List<Dice>> GetDiceCharacteristicBy(string? Edge = null, string? Color = null, string? Material = null, string? Style = null, string? Type = null, string? Size = null)
         {
             var results = await _db.LoadData<Dice, dynamic>("Dice_GetDiceByCharacteristic @Edge, @Color, @Material, @Style, @Type, @Size", new { Edge = Edge, Color = Color, Material = Material, Style = Style, Type = Type, Size = Size });
             return results.ToList();
         }
 
-        public async Task<Product?> GetProductById(int productId)
-        {
-            var results = await _db.LoadData<Product, int>("Dice_GetProductById", productId);
-            return results.FirstOrDefault();
-        }
-
         public async Task Insert(Dice entity)
         {
-            await _db.SaveData("Dice_Insert @Product_Id, @Edge, @Color, @Material, @Style, @Type, @Size", new { Product_Id = entity.Product_Id, Edge = entity.Edge, Color = entity.Color, Material = entity.Material, Style = entity.Style, Type = entity.Type, Size = entity.Size });
+            await _db.SaveData("Dice_Insert @Dice_Name, @Dice_Quantity, @Dice_Price, @Edge, @Color, @Material, @Style, @Type, @Size", new { entity.Dice_Name, entity.Dice_Quantity, entity.Dice_Price, entity.Edge, entity.Color, entity.Material, entity.Style, entity.Type, entity.Size });
         }
 
         public async Task Update(Dice entity)
         {
-            await _db.SaveData("Dice_Insert @Product_Id, @Edge, @Color, @Material, @Style, @Type, @Size", entity);
+            await _db.SaveData("Dice_Insert @Dice_Id, @Dice_Name, @Dice_Quantity, @Dice_Price, @Edge, @Color, @Material, @Style, @Type, @Size", entity);
 
         }
     }

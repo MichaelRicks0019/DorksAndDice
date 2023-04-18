@@ -8,7 +8,5 @@ using DorksAndDice.Logic.Models.CustomerData;
 using DorksAndDice.Logic.Models.Product;
 using Microsoft.Extensions.Configuration;
 
-ISqlDataAccess i = new SqlDataAccess();
-IDiceRepository<Dice> Dice = new DiceRepository<Dice>(i);
-List<Dice> type = await Dice.GetDiceCharacteristicBy(Edge: "Sharp");
-Console.ReadLine();
+Dice dice = new Dice() { Dice_Id = 1, Dice_Name = "Blue Set", Color = "Blue", Dice_Price = 20.99m, Dice_Quantity = 5, Edge = "Sharp", Material = "Resin", Size = "Normal", Style = "Color", Type = "Set" };
+Console.WriteLine(dice.ToString());

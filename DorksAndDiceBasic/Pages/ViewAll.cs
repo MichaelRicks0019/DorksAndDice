@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DorksAndDiceBasic
+namespace DorksAndDiceBasic.Pages
 {
-    public partial class Update : Form
+    public partial class ViewAll : Form
     {
-        public Update()
+        public ViewAll()
         {
             InitializeComponent();
-        }
-
-        private void Update_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

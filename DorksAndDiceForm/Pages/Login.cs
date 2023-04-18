@@ -1,5 +1,4 @@
-﻿using DorksAndDiceBasic.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DorksAndDiceBasic
+namespace DorksAndDiceForm
 {
     public partial class Login : Form
     {
         public Login()
         {
             InitializeComponent();
-        }
-
-        private void button_Login_Click(object sender, EventArgs e)
-        {
-            MainPage mainPage = new MainPage();
-            mainPage.ShowDialog();
         }
     }
 }
