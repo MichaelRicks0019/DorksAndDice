@@ -1,5 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[Dice_Update]
-	@Product_Id int,
+	@Dice_Id int,
+	@Dice_Name nvarchar(75),
+	@Dice_Quantity int,
+	@Dice_Price decimal,
 	@Edge nvarchar(75),
 	@Color nvarchar(75),
 	@Material nvarchar(75),
@@ -9,11 +12,14 @@
 AS
 BEGIN
 	UPDATE [dbo].[Dice]
-	SET Edge = @Edge,
+	SET Dice_Name = @Dice_Name,
+	Dice_Quantity = @Dice_Quantity,
+	Dice_Price = @Dice_Price,
+	Edge = @Edge,
 	Color = @Color,
 	Material = @Material,
 	Style = @Style,
 	Type = @Type,
 	Size = @Size
-	WHERE Product_Id = Product_Id;
+	WHERE Dice_Id = @Dice_Id;
 END

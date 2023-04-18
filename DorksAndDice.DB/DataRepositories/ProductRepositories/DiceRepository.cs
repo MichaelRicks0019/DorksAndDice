@@ -5,6 +5,7 @@ using DorksAndDice.Logic.Interfaces;
 using DorksAndDice.Logic.Models.Product;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,24 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
         {
             var results = await _db.LoadData<Dice, int>("dbo.Dice_GetById", id);
             return results.FirstOrDefault();
+        }
+
+        public async Task<List<Dice>> GetByName(string name)
+        {
+            var results = await _db.LoadData<Dice, string>("dbo.Dice_GetByName @Dice_Name", name);
+            return results.ToList();
+        }
+
+        public async Task<List<Dice>> GetByPrice(decimal price)
+        {
+            var results = await _db.LoadData<Dice, decimal>("dbo.Dice_GetByPrice @Dice_Price", price);
+            return results.ToList();
+        }
+
+        public async Task<List<Dice>> GetByQuantity(int quantity)
+        {
+            var results = await _db.LoadData<Dice, decimal>("dbo.Dice_GetByQuantity @Dice_Quantity", quantity);
+            return results.ToList();
         }
 
         public async Task<Dice?> GetDiceById(int DiceId)

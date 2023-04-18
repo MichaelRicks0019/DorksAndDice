@@ -63,7 +63,6 @@
     <Folder Include="Dbo\StoredProcedures\CityProcedures" />
     <Folder Include="Dbo\StoredProcedures\CountryProcedures" />
     <Folder Include="Dbo\StoredProcedures\CustomerDataProcedures" />
-    <Folder Include="Dbo\StoredProcedures\ProductProcedures" />
     <Folder Include="Dbo\StoredProcedures\DiceProcedures" />
     <Folder Include="Dbo\DiceCharacteristic" />
     <Folder Include="Dbo\StoredProcedures\OrdersProcedures" />
@@ -78,7 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Dbo\ProductTable\Dice.sql" />
-    <Build Include="Dbo\ProductTable\Product.sql" />
     <Build Include="Dbo\CustomerData\Address.sql" />
     <Build Include="Dbo\CustomerData\City.sql" />
     <Build Include="Dbo\CustomerData\Country.sql" />
@@ -127,16 +125,6 @@
     <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_Insert.sql" />
     <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_Update.sql" />
     <Build Include="Dbo\StoredProcedures\CustomerDataProcedures\CustomerData_Delete.sql" />
-    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_GetByName.sql" />
-    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_GetByQuantity.sql" />
-    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_GetByPrice.sql" />
-    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_GetByType.sql" />
-    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_GetById.sql" />
-    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_GetAll.sql" />
-    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_Insert.sql" />
-    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_Update.sql" />
-    <Build Include="Dbo\StoredProcedures\ProductProcedures\Product_Delete.sql" />
-    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetProductById.sql" />
     <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetDiceById.sql" />
     <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetDiceByCharacteristic.sql" />
     <Build Include="Dbo\DiceCharacteristic\Edge.sql" />
@@ -154,8 +142,6 @@
     <Build Include="Dbo\StoredProcedures\OrdersProcedures\Orders_Delete.sql" />
     <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetById.sql" />
     <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetAll.sql" />
-    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_Insert.sql" />
-    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_Update.sql" />
     <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_Delete.sql" />
     <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_GetByShoppingCartId.sql" />
     <Build Include="Dbo\StoredProcedures\ShoppingCartsProcedures\ShoppingCarts_GetByProductId.sql" />
@@ -204,6 +190,11 @@
     <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\SizeProcedures\Size_Insert.sql" />
     <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\SizeProcedures\Size_Update.sql" />
     <Build Include="Dbo\StoredProcedures\DiceCharacteristicProcedures\SizeProcedures\Size_Delete.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetByName.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\DIce_GetByQuantity.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_GetByPrice.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_Insert.sql" />
+    <Build Include="Dbo\StoredProcedures\DiceProcedures\Dice_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DorksAndDiceDB.refactorlog" />

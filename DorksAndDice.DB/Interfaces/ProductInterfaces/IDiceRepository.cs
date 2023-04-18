@@ -8,5 +8,8 @@ namespace DorksAndDice.DB.Interfaces.ProductInterfaces
         Task<Dice?> GetDiceById(int DiceId);
         Task<List<Dice>> GetDiceCharacteristicBy(string? Edge = null, string? Color = null, string? Material = null, string? Style = null, string? Type = null, string? Size = null);
         Task<Product?> GetProductById(int productId);
+        Task<List<Dice>> GetByName(string name);
+        Task<List<Dice>> GetByQuantity(int quantity);
+        Task<List<Dice>> GetByPrice(decimal price);
     }
 }

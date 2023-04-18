@@ -1,7 +1,9 @@
 ﻿CREATE TABLE [dbo].[Dice]
 (
 	[Dice_Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Product_Id] INT NOT NULL, 
+    [Dice_Name] NVARCHAR(75) NOT NULL, 
+    [Dice_Quantity] INT NOT NULL,
+    [Dice_Price] DECIMAL NOT NULL,
     [Edge] NVARCHAR(75) NULL, 
     [Color] NVARCHAR(75) NULL, 
     [Material] NVARCHAR(75) NULL, 
