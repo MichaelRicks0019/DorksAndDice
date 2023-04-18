@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DorksAndDiceBasic.Pages;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,8 @@ namespace DorksAndDiceBasic
 
         private void button_Login_Click(object sender, EventArgs e)
         {
-
+            Delete delete = new Delete();
+            delete.Show();
         }
     }
 }
