@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DorksAndDiceForm.Pages;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace DorksAndDiceForm
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void button_Login_Click(object sender, EventArgs e)
+        {
+            MainPage mainPage = new MainPage();
+            mainPage.Show();
         }
     }
 }
