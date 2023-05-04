@@ -41,23 +41,35 @@ namespace DorksAndDiceForm.Pages
 
         private void button_Add_Click(object sender, EventArgs e)
         {
-            if (label_Name.Text != null && label_Quantity.Text != null && label_Price != null)
-            {
-                Dice dice = new Dice() { Dice_Id = 1, 
-                    Dice_Name = textBox_Name.Text,
-                    Dice_Quantity = int.Parse(textBox_Quantity.Text),
-                    Dice_Price = decimal.Parse(textBox_Price.Text),
-                    Edge = textBox_Edge.Text,
-                    Color = textBox_Color.Text,
-                    Material = textBox_Material.Text,
-                    Style = textBox_Style.Text,
-                    Type = textBox_Type.Text,
-                    Size = textBox_Size.Text };
+            Dice dice;
+             
+                try 
+                {
+                    dice = new Dice() { Dice_Id = 1,
+                        Dice_Name = textBox_Name.Text,
+                        Dice_Quantity = int.Parse(textBox_Quantity.Text),
+                        Dice_Price = decimal.Parse(textBox_Price.Text),
+                        Edge = textBox_Edge.Text,
+                        Color = textBox_Color.Text,
+                        Material = textBox_Material.Text,
+                        Style = textBox_Style.Text,
+                        Type = textBox_Type.Text,
+                        Size = textBox_Size.Text };
 
-                UOW.Dice.Insert(dice);
-                ResetTexts();
-                MessageBox.Show($"{dice.Dice_Name} was added Successfully");
-            }
+                    
+                    UOW.Dice.Insert(dice);
+                    ResetTexts();
+                    MessageBox.Show($"{dice.Dice_Name} was added Successfully");
+                }
+                catch(System.FormatException ex)
+                {
+                    MessageBox.Show(ex.Message + "\n Please make sure input info is correct", "Format Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Issue found, please make sure input info is correct.", "Error Found");
+                }
+            
             
         }
 

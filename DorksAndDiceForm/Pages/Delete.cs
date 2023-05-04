@@ -22,10 +22,10 @@ namespace DorksAndDiceForm.Pages
             InitializeComponent();
             _db = new SqlDataAccess();
             UOW = new UnitOfWork(_db);
-            AddItems();
+            AddItemsNames();
         }
 
-        public async void AddItems()
+        public async void AddItemsNames()
         {
             var i = UOW.Dice.GetAll();
             await i;
@@ -37,7 +37,10 @@ namespace DorksAndDiceForm.Pages
 
         private void comboBox_Products_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(comboBox_Products.Text != string.Empty) 
+            { 
+                label_AmountLeft.Text = $"{label_AmountLeft} {UOW.Dice.GetByName(comboBox_Products.Text).Result.FirstOrDefault().Dice_Quantity}";
+            }
         }
     }
 }
