@@ -256,7 +256,7 @@
             this.panel_DiceInfoInput.Location = new System.Drawing.Point(292, 45);
             this.panel_DiceInfoInput.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel_DiceInfoInput.Name = "panel_DiceInfoInput";
-            this.panel_DiceInfoInput.Size = new System.Drawing.Size(371, 361);
+            this.panel_DiceInfoInput.Size = new System.Drawing.Size(371, 381);
             this.panel_DiceInfoInput.TabIndex = 5;
             // 
             // button_Add

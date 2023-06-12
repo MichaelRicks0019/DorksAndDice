@@ -34,13 +34,13 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
 
         public async Task<Dice?> GetById(int id)
         {
-            var results = await _db.LoadData<Dice, int>("dbo.Dice_GetById @Dice_Id", id);
+            var results = await _db.LoadData<Dice, dynamic>("dbo.Dice_GetById @Dice_Id", new { Dice_Id = id });
             return results.FirstOrDefault();
         }
 
         public async Task<List<Dice>> GetByName(string name)
         {
-            var results = await _db.LoadData<Dice, string>("dbo.Dice_GetByName @Dice_Name", name);
+            var results = await _db.LoadData<Dice, string>("dbo.Dice_GetByName", name);
             return results.ToList();
         }
 

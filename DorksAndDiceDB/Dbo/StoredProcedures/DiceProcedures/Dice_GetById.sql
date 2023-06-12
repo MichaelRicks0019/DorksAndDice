@@ -6,3 +6,4 @@ BEGIN
 	FROM [dbo].[Dice]
 	WHERE Dice_Id = @Dice_Id;
 END
+

@@ -31,7 +31,7 @@ namespace DorksAndDice.DB.DBAccess
             using (IDbConnection connection = new SqlConnection(connectionId))
             {
                 connection.Open();
-                var list = await Task.Run(() => connection.QueryAsync<T>(storedProcedure, parameters).Result.ToList());
+                var list = await Task.Run(() => connection.QueryAsync<T>(storedProcedure, parameters));
                 connection.Close();
                 return list;
             }

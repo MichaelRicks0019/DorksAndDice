@@ -12,5 +12,5 @@ using Microsoft.Extensions.Configuration;
 ISqlDataAccess _db = new SqlDataAccess();
 UnitOfWork UOW = new UnitOfWork(_db);
 
-var i = await UOW.Dice.GetByName("Pure Black");
+var i = await UOW.Dice.GetById(1);
 Console.WriteLine(i);
