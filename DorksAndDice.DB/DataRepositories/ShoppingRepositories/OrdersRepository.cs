@@ -31,18 +31,18 @@ namespace DorksAndDice.DB.DataRepositories.ShoppingRepositories
 
         public async Task<List<Orders>> GetByCustomerId(int customerId)
         {
-            var results = await _db.LoadData<Orders, int>("dbo.Orders_GetByCustomerId @Customer_Id", customerId);
+            var results = await _db.LoadData<Orders, dynamic>("dbo.Orders_GetByCustomerId @Customer_Id", new { Customer_Id = customerId });
             return results.ToList();        }
 
         public async Task<Orders?> GetById(int id)
         {
-            var results = await _db.LoadData<Orders, int>("dbo.Orders_GetById @Order_Id", id);
+            var results = await _db.LoadData<Orders, dynamic>("dbo.Orders_GetById @Order_Id", new { Order_Id = id });
             return results.FirstOrDefault();
         }
 
         public async Task<List<Orders>> GetByShoppingCartId(int shoppingCartId)
         {
-            var results = await _db.LoadData<Orders, int>("dbo.Orders_GetByShoppingCartId @ShoppingCart_Id", shoppingCartId);
+            var results = await _db.LoadData<Orders, dynamic>("dbo.Orders_GetByShoppingCartId @ShoppingCart_Id", new { ShoppingCart_Id = shoppingCartId });
             return results.ToList();
         }
 

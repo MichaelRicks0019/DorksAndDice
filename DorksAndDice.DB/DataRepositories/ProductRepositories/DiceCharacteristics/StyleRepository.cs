@@ -31,13 +31,13 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories.DiceCharacteristi
 
         public async Task<Style?> GetById(int id)
         {
-            var results = await _db.LoadData<Style, int>("dbo.Style_GetById @Style_Id", id);
+            var results = await _db.LoadData<Style, dynamic>("dbo.Style_GetById @Style_Id", new { Style_Id = id });
             return results.FirstOrDefault();
         }
 
         public async Task<List<Style>> GetByStyle(string style)
         {
-            var results = await _db.LoadData<Style, string>("dbo.Style_GetByStyle @Dice_Style", style);
+            var results = await _db.LoadData<Style, dynamic>("dbo.Style_GetByStyle @Dice_Style", new { Dice_Style = style });
             return results.ToList();
         }
 

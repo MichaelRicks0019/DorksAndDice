@@ -37,31 +37,31 @@ namespace DorksAndDice.DB.DataRepositories.ShoppingRepositories
 
         public async Task<ShoppingCartItems?> GetById(int id)
         {
-            var results = await _db.LoadData<ShoppingCartItems, int>("dbo.ShoppingCarts_GetById @Customer_Id", id);
+            var results = await _db.LoadData<ShoppingCartItems, dynamic>("dbo.ShoppingCarts_GetById @Customer_Id", new { Customer_Id = id });
             return results.FirstOrDefault();
         }
 
         public async Task<List<ShoppingCartItems>> GetByProductId(int productId)
         {
-            var results = await _db.LoadData<ShoppingCartItems, int>("dbo.ShoppingCarts_GetByProductId @Product_Id", productId);
+            var results = await _db.LoadData<ShoppingCartItems, dynamic>("dbo.ShoppingCarts_GetByProductId @Product_Id", new { Product_Id = productId });
             return results.ToList();
         }
 
         public async Task<List<ShoppingCartItems>> GetByQuantity(int quantity)
         {
-            var results = await _db.LoadData<ShoppingCartItems, int>("dbo.ShoppingCarts_GetByQuantity @Quantity", quantity);
+            var results = await _db.LoadData<ShoppingCartItems, dynamic>("dbo.ShoppingCarts_GetByQuantity @Quantity", new { Quantity = quantity });
             return results.ToList();
         }
 
         public async Task<List<ShoppingCartItems>> GetByShoppingCartId(int shoppingCartId)
         {
-            var results = await _db.LoadData<ShoppingCartItems, int>("dbo.ShoppingCarts_GetByShoppingCartId @ShoppingCart_Id", shoppingCartId);
+            var results = await _db.LoadData<ShoppingCartItems, dynamic>("dbo.ShoppingCarts_GetByShoppingCartId @ShoppingCart_Id", new { ShoppingCart_Id = shoppingCartId });
             return results.ToList();
         }
 
         public async Task<decimal> GetTotal(int shoppingCartId)
         {
-            var results = await _db.LoadData<decimal, int>("dbo.ShoppingCarts_GetTotal @ShoppingCart_Id", shoppingCartId);
+            var results = await _db.LoadData<decimal, dynamic>("dbo.ShoppingCarts_GetTotal @ShoppingCart_Id", new { ShoppingCart_Id = shoppingCartId });
             return results.FirstOrDefault();
         }
 

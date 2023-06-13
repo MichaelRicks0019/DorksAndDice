@@ -31,45 +31,46 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 
         public async Task<List<Address>> GetByAddress1(string address)
         {
-            var results = await _db.LoadData<Address, string>("dbo.Address_GetByAddress1", address);
+            var results = await _db.LoadData<Address, dynamic>("dbo.Address_GetByAddress1 @Address1", new { Address1 = address });
             return results.ToList();
         }
 
         public async Task<List<Address>> GetByAddress2(string address)
         {
-            var results = await _db.LoadData<Address, string>("dbo.Address_GetByAddress2", address);
+            var results = await _db.LoadData<Address, dynamic>("dbo.Address_GetByAddress2 @Address2", new { Address2 = address });
             return results.ToList();
         }
 
         public async Task<List<Address>> GetByApartmentNumeber(int addressId)
         {
-            var results = await _db.LoadData<Address, int>("dbo.Address_GetByApartmentNumber", addressId);
+            var results = await _db.LoadData<Address, dynamic>("dbo.Address_GetByApartmentNumber @Address_Id", new { Address_Id = addressId });
             return results.ToList();
         }
 
         public async Task<List<Address>> GetByCityId(int cityid)
         {
-            var results = await _db.LoadData<Address, int>("dbo.Address_GetByCityId", cityid);
+            var results = await _db.LoadData<Address, dynamic>("dbo.Address_GetByCityId @City_Id", new { City_Id = cityid });
             return results.ToList();
         }
 
         public async Task<Address?> GetById(int id)
         {
-            var results = await _db.LoadData<Address, int>("dbo.Address_GetById", id);
+            var results = await _db.LoadData<Address, dynamic>("dbo.Address_GetById @Address_Id", new { Address_Id = id });
             return results.FirstOrDefault();
 
         }
 
         public async Task<List<Address>> GetByPostalCode(string postalCode)
         {
-            var results = await _db.LoadData<Address, string>("dbo.Address_GetByPostalCode", postalCode);
+            var results = await _db.LoadData<Address, dynamic>("dbo.Address_GetByPostalCode @Postal_Code", new { Postal_Code = postalCode });
             return results.ToList();
 
         }
 
         public async Task<DateTime> GetLastUpdate(int addressId)
         {
-            var results = await _db.LoadData<DateTime, int>("dbo.Address_GetById", addressId);
+            var results = await _db.LoadData<DateTime, dynamic>("dbo.Address_GetLastUpdate @Adddress_Id", new { Address_Id = addressId }
+            );
             return results.FirstOrDefault();
         }
 

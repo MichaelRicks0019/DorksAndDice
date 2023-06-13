@@ -30,13 +30,13 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories.DiceCharacteristi
 
         public async Task<List<Color>> GetByColor(string color)
         {
-            var results = await _db.LoadData<Color, string>("dbo.Color_GetByColor @Dice_Color", color);
+            var results = await _db.LoadData<Color, dynamic>("dbo.Color_GetByColor @Dice_Color", new { Dice_Color = color });
             return results.ToList();
         }
 
         public async Task<Color?> GetById(int id)
         {
-            var results = await _db.LoadData<Color, int>("dbo.Color_GetById @Color_Id", id);
+            var results = await _db.LoadData<Color, dynamic>("dbo.Color_GetById @Color_Id", new { Color_Id = id });
             return results.FirstOrDefault();
         }
 

@@ -30,13 +30,13 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories.DiceCharacteristi
 
         public async Task<Material?> GetById(int id)
         {
-            var results = await _db.LoadData<Material, int>("dbo.Material_GetById", id );
+            var results = await _db.LoadData<Material, dynamic>("dbo.Material_GetById @Material_Id", new { Material_Id = id } );
             return results.FirstOrDefault();
         }
 
         public async Task<List<Material>> GetByMaterial(string material)
         {
-            var results = await _db.LoadData<Material, string>("dbo.Material_GetByMaterial @Dice_Material", material);
+            var results = await _db.LoadData<Material, dynamic>("dbo.Material_GetByMaterial @Dice_Material", new { Dice_Material = material });
             return results.ToList();
         }
 

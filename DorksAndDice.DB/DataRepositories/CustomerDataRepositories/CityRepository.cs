@@ -36,19 +36,19 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 
         public async Task<List<City>> GetByName(string name)
         {
-            var results = await _db.LoadData<City, string>("dbo.City_GetByName @City_Name", name);
+            var results = await _db.LoadData<City, dynamic>("dbo.City_GetByName @City_Name", new { City_Name = name });
             return results.ToList();
         }
 
         public async Task<List<City>> GetByState(int state)
         {
-            var results = await _db.LoadData<City, int>("dbo.City_GetByState @State_Name", state);
+            var results = await _db.LoadData<City, dynamic>("dbo.City_GetByState @State_Name", new { State_Name = state });
             return results.ToList();
         }
 
         public async Task<int> GetCountryId(int cityId)
         {
-            var results = await _db.LoadData<int, int>("dbo.City_GetCountryId @City_Id", cityId);
+            var results = await _db.LoadData<int, dynamic>("dbo.City_GetCountryId @City_Id", new { City_Id = cityId });
             return results.FirstOrDefault();
         }
 
@@ -59,7 +59,7 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 
         public async Task<DateTime> LastUpdate(int cityId)
         {
-            var results = await _db.LoadData<DateTime, int>("dbo.City_GetLastUpdate @City_Id", cityId);
+            var results = await _db.LoadData<DateTime, dynamic>("dbo.City_GetLastUpdate @City_Id", new { City_Id = cityId });
             return results.FirstOrDefault();
         }
 

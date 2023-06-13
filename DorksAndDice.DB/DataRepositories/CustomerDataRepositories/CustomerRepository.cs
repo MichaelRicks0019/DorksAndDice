@@ -38,55 +38,55 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 
         public async Task<List<CustomerData>> GetByAddressId(int addressId)
         {
-            var results = await _db.LoadData<CustomerData, int>("dbo.CustomerData_GetByAddressId", addressId);
+            var results = await _db.LoadData<CustomerData, dynamic>("dbo.CustomerData_GetByAddressId @Address_Id", new { Address_Id = addressId });
             return results.ToList();
         }
 
         public async Task<List<CustomerData>> GetByEmail(string email)
         {
-            var results = await _db.LoadData<CustomerData, string>("dbo.CustomerData_GetByEmail", email);
+            var results = await _db.LoadData<CustomerData, dynamic>("dbo.CustomerData_GetByEmail @Email", new { Email = email });
             return results.ToList();
         }
 
         public async Task<List<CustomerData>> GetByFirstName(string name)
         {
-            var results = await _db.LoadData<CustomerData, string>("dbo.CustomerData_GetByFirstName", name);
+            var results = await _db.LoadData<CustomerData, dynamic>("dbo.CustomerData_GetByFirstName @First_Name", new { First_Name = name });
             return results.ToList();
         }
 
-        public async Task<List<CustomerData>> GetByFullName(string fullName)
+        public async Task<List<CustomerData>> GetByFullName(string firstName, string middleName, string lastName)
         {
-            var results = await _db.LoadData<CustomerData, string>("dbo.CustomerData_GetByFullName", fullName);
+            var results = await _db.LoadData<CustomerData, dynamic>("dbo.CustomerData_GetByFullName @First_Name, @Middle_Name, @Last_Name", new { First_Name = firstName, Middle_Name = middleName, Last_Name = lastName });
             return results.ToList();
         }
 
         public async Task<CustomerData?> GetById(int id)
         {
-            var results = await _db.LoadData<CustomerData, int>("dbo.CustomerData_GetById", id);
+            var results = await _db.LoadData<CustomerData, dynamic>("dbo.CustomerData_GetById @Customer_Id", new { Customer_Id = id });
             return results.FirstOrDefault();
         }
 
         public async Task<List<CustomerData>> GetByLastName(string lastName)
         {
-            var results = await _db.LoadData<CustomerData, string>("dbo.CustomerData_GetByLastName", lastName);
+            var results = await _db.LoadData<CustomerData, dynamic>("dbo.CustomerData_GetByLastName @Last_Name", new { Last_Name = lastName });
             return results.ToList();
         }
 
         public async Task<List<CustomerData>> GetByMiddleName(string name)
         {
-            var results = await _db.LoadData<CustomerData, string>("dbo.CustomerData_GetByMiddleName", name);
+            var results = await _db.LoadData<CustomerData, dynamic>("dbo.CustomerData_GetByMiddleName @Middle_Name", new { Middle_Name = name });
             return results.ToList();
         }
 
         public async Task<List<CustomerData>> GetByPhoneNumber(string phoneNumber)
         {
-            var results = await _db.LoadData<CustomerData, string>("dbo.CustomerData_GetByPhoneNumber", phoneNumber);
+            var results = await _db.LoadData<CustomerData, dynamic>("dbo.CustomerData_GetByPhoneNumber @Phone_Number", new { Phone_Number = phoneNumber });
             return results.ToList();
         }
 
         public async Task<DateTime> GetCreateDate(int customerId)
         {
-            var results = await _db.LoadData<DateTime, int>("dbo.CustomerData_GetByAddressId", customerId);
+            var results = await _db.LoadData<DateTime, dynamic>("dbo.CustomerData_GetCreateDate @Customer_Id", new { Customer_Id = customerId });
             return results.FirstOrDefault();
         }
 
@@ -108,7 +108,7 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 
         public async Task<DateTime> LastLoggedOn(int customerId)
         {
-            var results = await _db.LoadData<DateTime, int>("CustomerData_LastLoggedOn", customerId);
+            var results = await _db.LoadData<DateTime, dynamic>("CustomerData_LastLoggedOn @Customer_Id", new { Customer_Id = customerId });
             return results.FirstOrDefault();
         }
 

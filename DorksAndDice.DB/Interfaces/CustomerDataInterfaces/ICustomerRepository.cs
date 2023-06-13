@@ -8,7 +8,7 @@ namespace DorksAndDice.DB.Interfaces.CustomerDataInterfaces
         Task<List<CustomerData>> GetByAddressId(int addressId);
         Task<List<CustomerData>> GetByEmail(string email);
         Task<List<CustomerData>> GetByFirstName(string name);
-        Task<List<CustomerData>> GetByFullName(string fullName);
+        Task<List<CustomerData>> GetByFullName(string fullName, string middleName, string lastName);
         Task<List<CustomerData>> GetByLastName(string lastName);
         Task<List<CustomerData>> GetByMiddleName(string name);
         Task<List<CustomerData>> GetByPhoneNumber(string phoneNumber);

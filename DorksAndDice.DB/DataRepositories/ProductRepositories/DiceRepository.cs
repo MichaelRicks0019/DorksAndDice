@@ -40,19 +40,19 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
 
         public async Task<List<Dice>> GetByName(string name)
         {
-            var results = await _db.LoadData<Dice, string>("dbo.Dice_GetByName", name);
+            var results = await _db.LoadData<Dice, dynamic>("dbo.Dice_GetByName @Dice_Id", new { Dice_Id = name });
             return results.ToList();
         }
 
         public async Task<List<Dice>> GetByPrice(decimal price)
         {
-            var results = await _db.LoadData<Dice, decimal>("dbo.Dice_GetByPrice @Dice_Price", price);
+            var results = await _db.LoadData<Dice, dynamic>("dbo.Dice_GetByPrice @Dice_Price", new { Dice_Price = price });
             return results.ToList();
         }
 
         public async Task<List<Dice>> GetByQuantity(int quantity)
         {
-            var results = await _db.LoadData<Dice, decimal>("dbo.Dice_GetByQuantity @Dice_Quantity", quantity);
+            var results = await _db.LoadData<Dice, dynamic>("dbo.Dice_GetByQuantity @Dice_Quantity", new { Dice_Quantity = quantity });
             return results.ToList();
         }
 

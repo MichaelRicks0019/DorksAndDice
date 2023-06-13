@@ -31,13 +31,13 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 
         public async Task<Country?> GetById(int id)
         {
-            var results = await _db.LoadData<Country, int>("dbo.Country_GetById @Country_Id", id);
+            var results = await _db.LoadData<Country, dynamic>("dbo.Country_GetById @Country_Id", new { Country_Id = id });
             return results.FirstOrDefault();
         }
 
         public async Task<List<Country>> GetByName(string name)
         {
-            var results = await _db.LoadData<Country, string>("dbo.Country_GetByName @Country_Name", name);
+            var results = await _db.LoadData<Country, dynamic>("dbo.Country_GetByName @Country_Name", new { Country_Name = name });
             return results.ToList();
         }
 
@@ -48,7 +48,7 @@ namespace DorksAndDice.DB.DataRepositories.CustomerDataRepositories
 
         public async Task<DateTime> LastUpdate(int countryId)
         {
-            var results = await _db.LoadData<DateTime, int>("dbo.Country_LastUpdate @Country_Id", countryId);
+            var results = await _db.LoadData<DateTime, dynamic>("dbo.Country_LastUpdate @Country_Id", new { Country_Id = countryId });
             return results.FirstOrDefault();
         }
 
