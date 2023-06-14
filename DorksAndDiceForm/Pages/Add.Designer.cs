@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label_Type = new System.Windows.Forms.Label();
             this.label_Price = new System.Windows.Forms.Label();
             this.label_Quantity = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             this.button_Reset = new System.Windows.Forms.Button();
             this.button_Cancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox_Add.SuspendLayout();
             this.panel_DiceInfoInput.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -350,5 +352,6 @@
         private System.Windows.Forms.Button button_Reset;
         private System.Windows.Forms.Button button_Cancel;
         private System.Windows.Forms.GroupBox groupBox1;
+        private ToolTip toolTip1;
     }
 }
