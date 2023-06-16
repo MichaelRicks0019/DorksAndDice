@@ -35,22 +35,23 @@
             this.button_Delete = new System.Windows.Forms.Button();
             this.button_Reset = new System.Windows.Forms.Button();
             this.label_AmountLeft = new System.Windows.Forms.Label();
-            this.textBox_Quantity = new System.Windows.Forms.TextBox();
             this.comboBox_Products = new System.Windows.Forms.ComboBox();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label_Quantity = new System.Windows.Forms.Label();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dorksAndDiceDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.numericUpDown_Quantity = new System.Windows.Forms.NumericUpDown();
             this.groupBox_Delete.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dorksAndDiceDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Quantity)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox_Delete
             // 
+            this.groupBox_Delete.Controls.Add(this.numericUpDown_Quantity);
             this.groupBox_Delete.Controls.Add(this.groupBox1);
             this.groupBox_Delete.Controls.Add(this.label_AmountLeft);
-            this.groupBox_Delete.Controls.Add(this.textBox_Quantity);
             this.groupBox_Delete.Controls.Add(this.comboBox_Products);
             this.groupBox_Delete.Controls.Add(this.label_Quantity);
             this.groupBox_Delete.Location = new System.Drawing.Point(216, 89);
@@ -95,6 +96,7 @@
             this.button_Delete.TabIndex = 6;
             this.button_Delete.Text = "Delete";
             this.button_Delete.UseVisualStyleBackColor = true;
+            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
             // 
             // button_Reset
             // 
@@ -116,14 +118,6 @@
             this.label_AmountLeft.TabIndex = 1;
             this.label_AmountLeft.Text = "Amount Left:";
             // 
-            // textBox_Quantity
-            // 
-            this.textBox_Quantity.Location = new System.Drawing.Point(100, 136);
-            this.textBox_Quantity.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox_Quantity.Name = "textBox_Quantity";
-            this.textBox_Quantity.Size = new System.Drawing.Size(116, 23);
-            this.textBox_Quantity.TabIndex = 2;
-            // 
             // comboBox_Products
             // 
             this.comboBox_Products.FormattingEnabled = true;
@@ -144,6 +138,13 @@
             this.label_Quantity.TabIndex = 1;
             this.label_Quantity.Text = "Quantity";
             // 
+            // numericUpDown_Quantity
+            // 
+            this.numericUpDown_Quantity.Location = new System.Drawing.Point(100, 136);
+            this.numericUpDown_Quantity.Name = "numericUpDown_Quantity";
+            this.numericUpDown_Quantity.Size = new System.Drawing.Size(120, 23);
+            this.numericUpDown_Quantity.TabIndex = 12;
+            // 
             // Delete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -158,6 +159,7 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dorksAndDiceDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Quantity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -170,11 +172,11 @@
         private System.Windows.Forms.BindingSource dorksAndDiceDataSetBindingSource;
         private System.Windows.Forms.BindingSource diceBindingSource;
         private System.Windows.Forms.BindingSource productBindingSource;
-        private System.Windows.Forms.TextBox textBox_Quantity;
         private System.Windows.Forms.Label label_AmountLeft;
         private GroupBox groupBox1;
         private Button button_Cancel;
         private Button button_Delete;
         private Button button_Reset;
+        private NumericUpDown numericUpDown_Quantity;
     }
 }

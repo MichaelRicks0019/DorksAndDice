@@ -53,7 +53,7 @@
             this.button_Reset = new System.Windows.Forms.Button();
             this.button_Cancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip_Add = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox_Add.SuspendLayout();
             this.panel_DiceInfoInput.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -68,6 +68,8 @@
             this.label_Type.Size = new System.Drawing.Size(31, 15);
             this.label_Type.TabIndex = 0;
             this.label_Type.Text = "Type";
+            this.toolTip_Add.SetToolTip(this.label_Type, "Is this dice a Set or somthing like a D20?");
+            this.label_Type.Click += new System.EventHandler(this.label_Type_Click);
             // 
             // label_Price
             // 
@@ -77,7 +79,9 @@
             this.label_Price.Name = "label_Price";
             this.label_Price.Size = new System.Drawing.Size(33, 15);
             this.label_Price.TabIndex = 1;
+            this.label_Price.Tag = "add_Price";
             this.label_Price.Text = "Price";
+            this.toolTip_Add.SetToolTip(this.label_Price, "Enter how much is costs.");
             // 
             // label_Quantity
             // 
@@ -87,7 +91,9 @@
             this.label_Quantity.Name = "label_Quantity";
             this.label_Quantity.Size = new System.Drawing.Size(53, 15);
             this.label_Quantity.TabIndex = 2;
+            this.label_Quantity.Tag = "add_Quantity";
             this.label_Quantity.Text = "Quantity";
+            this.toolTip_Add.SetToolTip(this.label_Quantity, "Enter how much of this dice there are.");
             // 
             // label_Name
             // 
@@ -97,7 +103,9 @@
             this.label_Name.Name = "label_Name";
             this.label_Name.Size = new System.Drawing.Size(39, 15);
             this.label_Name.TabIndex = 3;
+            this.label_Name.Tag = "add_Name";
             this.label_Name.Text = "Name";
+            this.toolTip_Add.SetToolTip(this.label_Name, "Give the dice a name!");
             // 
             // groupBox_Add
             // 
@@ -145,6 +153,7 @@
             this.label_Size.Size = new System.Drawing.Size(27, 15);
             this.label_Size.TabIndex = 9;
             this.label_Size.Text = "Size";
+            this.toolTip_Add.SetToolTip(this.label_Size, "Small, Medium, Large, Giant, Standard?");
             // 
             // textBox_Style
             // 
@@ -187,6 +196,7 @@
             this.label_Style.Size = new System.Drawing.Size(32, 15);
             this.label_Style.TabIndex = 11;
             this.label_Style.Text = "Style";
+            this.toolTip_Add.SetToolTip(this.label_Style, "Plain color, Clear, Multicolor, Design?");
             // 
             // label_Edge
             // 
@@ -196,7 +206,9 @@
             this.label_Edge.Name = "label_Edge";
             this.label_Edge.Size = new System.Drawing.Size(33, 15);
             this.label_Edge.TabIndex = 14;
+            this.label_Edge.Tag = "add_Edge";
             this.label_Edge.Text = "Edge";
+            this.toolTip_Add.SetToolTip(this.label_Edge, "Sharp Edge or Soft Edge?");
             // 
             // textBox_Type
             // 
@@ -214,7 +226,9 @@
             this.label_Material.Name = "label_Material";
             this.label_Material.Size = new System.Drawing.Size(50, 15);
             this.label_Material.TabIndex = 12;
+            this.label_Material.Tag = "add_Material";
             this.label_Material.Text = "Material";
+            this.toolTip_Add.SetToolTip(this.label_Material, "Resin or Metal or something else?");
             // 
             // textBox_Name
             // 
@@ -240,7 +254,9 @@
             this.label_Color.Name = "label_Color";
             this.label_Color.Size = new System.Drawing.Size(36, 15);
             this.label_Color.TabIndex = 13;
+            this.label_Color.Tag = "add_Color";
             this.label_Color.Text = "Color";
+            this.toolTip_Add.SetToolTip(this.label_Color, "What color is the dice / set?");
             // 
             // textBox_Quantity
             // 
@@ -255,7 +271,7 @@
             this.panel_DiceInfoInput.AutoScroll = true;
             this.panel_DiceInfoInput.BackColor = System.Drawing.SystemColors.Control;
             this.panel_DiceInfoInput.Controls.Add(this.groupBox_Add);
-            this.panel_DiceInfoInput.Location = new System.Drawing.Point(292, 45);
+            this.panel_DiceInfoInput.Location = new System.Drawing.Point(314, 45);
             this.panel_DiceInfoInput.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel_DiceInfoInput.Name = "panel_DiceInfoInput";
             this.panel_DiceInfoInput.Size = new System.Drawing.Size(371, 381);
@@ -308,6 +324,10 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
+            // toolTip_Add
+            // 
+            this.toolTip_Add.Tag = "toolTip_Add";
+            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -352,6 +372,6 @@
         private System.Windows.Forms.Button button_Reset;
         private System.Windows.Forms.Button button_Cancel;
         private System.Windows.Forms.GroupBox groupBox1;
-        private ToolTip toolTip1;
+        private ToolTip toolTip_Add;
     }
 }

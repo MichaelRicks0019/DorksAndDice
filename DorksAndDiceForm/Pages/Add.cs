@@ -30,7 +30,7 @@ namespace DorksAndDiceForm.Pages
         {
             textBox_Name.Text = string.Empty;
             textBox_Quantity.Text = string.Empty;
-            textBox_Name.Text = string.Empty;
+            textBox_Price.Text = string.Empty;
             textBox_Edge.Text = string.Empty;
             textBox_Color.Text = string.Empty;
             textBox_Material.Text = string.Empty;
@@ -81,6 +81,11 @@ namespace DorksAndDiceForm.Pages
         private void button_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label_Type_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

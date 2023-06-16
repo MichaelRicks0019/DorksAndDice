@@ -17,6 +17,7 @@ namespace DorksAndDiceForm.Pages
     {
         UnitOfWork UOW;
         ISqlDataAccess _db;
+        Dice dice;
         public Delete()
         {
             InitializeComponent();
@@ -35,12 +36,31 @@ namespace DorksAndDiceForm.Pages
             }
         }
 
-        private void comboBox_Products_SelectedIndexChanged(object sender, EventArgs e)
+        private async void comboBox_Products_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboBox_Products.Text != string.Empty) 
             { 
-                label_AmountLeft.Text = $"{label_AmountLeft} {UOW.Dice.GetByName(comboBox_Products.Text).Result.FirstOrDefault().Dice_Quantity}";
+                var product = UOW.Dice.GetByName(comboBox_Products.Text);
+                await product;
+                dice = product.Result.FirstOrDefault();
+                label_AmountLeft.Text = $"AmountLeft: {dice.Dice_Quantity}";
             }
+        }
+
+        private async void button_Delete_Click(object sender, EventArgs e)
+        {
+            int i = int.Parse(numericUpDown_Quantity.Value.ToString()) - dice.Dice_Quantity;
+            if(i > 0)
+            {
+                Dice j = dice;
+                j.Dice_Quantity = i;
+                await UOW.Dice.Update(j);
+            }
+            else if(i < 0)
+            {
+                await UOW.Dice.Delete(dice.Dice_Id);
+            }
+            
         }
     }
 }
