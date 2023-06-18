@@ -23,7 +23,7 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
 
         public async Task Delete(int id)
         {
-            await _db.SaveData("dbo.Dice_Delete", id);
+            await _db.SaveData("dbo.Dice_Delete @Dice_Id", new { Dice_Id = id });
         }
 
         public async Task<List<Dice>> GetAll()
@@ -69,8 +69,7 @@ namespace DorksAndDice.DB.DataRepositories.ProductRepositories
 
         public async Task Update(Dice entity)
         {
-            await _db.SaveData("Dice_Insert @Dice_Id, @Dice_Name, @Dice_Quantity, @Dice_Price, @Edge, @Color, @Material, @Style, @Type, @Size", entity);
-
+            await _db.SaveData("Dice_Update @Dice_Id, @Dice_Name, @Dice_Quantity, @Dice_Price, @Edge, @Color, @Material, @Style, @Type, @Size", entity );
         }
     }
 }

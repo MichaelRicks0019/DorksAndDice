@@ -17,7 +17,7 @@ namespace DorksAndDiceForm.Pages
     {
         UnitOfWork UOW;
         ISqlDataAccess _db;
-        Dice dice;
+        Dice? dice;
         public Delete()
         {
             InitializeComponent();
@@ -36,31 +36,55 @@ namespace DorksAndDiceForm.Pages
             }
         }
 
-        private async void comboBox_Products_SelectedIndexChanged(object sender, EventArgs e)
+        public async void Refresh()
+        {
+            comboBox_Products.Items.Clear();
+            AddItemsNames();
+            QuantityLeft();
+        }
+
+        public async void QuantityLeft()
+        {
+            var product = UOW.Dice.GetByName(comboBox_Products.Text);
+            await product;
+            if (product.Result.FirstOrDefault() != null)
+            {
+                dice = product.Result.FirstOrDefault();
+                label_AmountLeft.Text = $"AmountLeft: {product.Result.FirstOrDefault().Dice_Quantity}";
+            }
+            else
+            {
+                dice = null;
+                label_AmountLeft.Text = $"AmountLeft:";
+            }
+        }
+
+        private void comboBox_Products_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboBox_Products.Text != string.Empty) 
             { 
-                var product = UOW.Dice.GetByName(comboBox_Products.Text);
-                await product;
-                dice = product.Result.FirstOrDefault();
-                label_AmountLeft.Text = $"AmountLeft: {dice.Dice_Quantity}";
+                QuantityLeft();
             }
         }
 
         private async void button_Delete_Click(object sender, EventArgs e)
         {
-            int i = int.Parse(numericUpDown_Quantity.Value.ToString()) - dice.Dice_Quantity;
-            if(i > 0)
+            if(comboBox_Products.Text != string.Empty)
             {
-                Dice j = dice;
-                j.Dice_Quantity = i;
-                await UOW.Dice.Update(j);
+                QuantityLeft();
+                if (dice != null)
+                {
+                    int i = dice.Dice_Quantity - int.Parse(numericUpDown_Quantity.Value.ToString());
+                    Dice j = dice;
+                    j.Dice_Quantity = i;
+                    if (i < 0)
+                    {
+                        j.Dice_Quantity = 0;
+                    }
+                    await UOW.Dice.Update(j);
+                }
+                Refresh();
             }
-            else if(i < 0)
-            {
-                await UOW.Dice.Delete(dice.Dice_Id);
-            }
-            
         }
     }
 }
